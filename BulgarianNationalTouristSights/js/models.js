@@ -35,8 +35,16 @@
     });
 
 
+    var UserGreetingModel = WinJS.Class.define(function (userMessage) {
+        this.userMessage = userMessage
+    }, {
+        userMessage : ""
+    })
+
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "Models", {
         PlaceModel: PlaceModel,
-        PlaceDetails: PlaceDetails
+        PlaceDetails: PlaceDetails,
+        UserGreetingModel: UserGreetingModel
     })
 }())

@@ -2,10 +2,8 @@
 
 (function () {
     var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
-    var applicationSettings = Windows.Storage.ApplicationData.current.localSettings;
-    var vault = new Windows.Security.Credentials.PasswordVault();
-
-    var apiClient = NationalPlacesApi.getClient("http://localhost:45021/api/", applicationSettings, vault);
+    
+    var apiClient = BulgarianNationalTouristSights.apiClient;
 
     var cacheAllPlacesFilaName = "allplacescache.txt";
     var cachePlaceFilaNameRoot = "placeNumber";
@@ -82,10 +80,8 @@
     var getComments = function (placeId) {
         var currentUser = apiClient.users.isUserLoggedIn();
         var promise = new WinJS.Promise(function (success, error) {
-            //if (currentUser) {
-            if(true){
-
-                apiClient.places.getComments("48qzyuMtxDKrlvJoLzSYwqzcSDvZpXrBVffOeXUbtZrwPadoBd", placeId)// currentUser.sessionKey
+            if (currentUser) {
+                apiClient.places.getComments(currentUser.sessionKey, placeId)// currentUser.sessionKey
                 .then(function(comments){
                     success(comments);
                 })
@@ -98,10 +94,15 @@
         return promise;
     }
        
+    var getUserInfomation = function () {
+        return apiClient.users.isUserLoggedIn();
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "Data", {
         allPlaces: getAllPlaces,
         getPlaceDetails: getPlaceDetails,
-        getComments: getComments
+        getComments: getComments,
+        getUserInformation: getUserInfomation
     });
 
     }())

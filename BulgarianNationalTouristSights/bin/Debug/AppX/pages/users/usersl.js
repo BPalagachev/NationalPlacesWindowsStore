@@ -9,6 +9,11 @@
         ready: function (element, options) {
             var userContainer = document.getElementById("user-container");
 
+            var userGreetingTemplate = document.getElementById("user-greeting-template").winControl;
+            var userGreetingContainer = document.getElementById("user-greeting-container");
+            var userGreetingMsg = BulgarianNationalTouristSights.ViewModels.loadUsersGreetingsMessage();
+            userGreetingTemplate.render(userGreetingMsg, userGreetingContainer);
+
             if (options.state == "register") {
                 WinJS.UI.Pages.render("/pages/users/userregister.html", userContainer);
             } else if (options.state == "login") {

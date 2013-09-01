@@ -1,10 +1,13 @@
 ﻿(function () {
     var data = BulgarianNationalTouristSights.Data;
     var models = BulgarianNationalTouristSights.Models;
+    var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
+   
+    var apiClient = BulgarianNationalTouristSights.apiClient;
+
 
     var allPlaces = new WinJS.Binding.List([]);
     var placeDetails;
-    var placeComments = [];
 
     var loadAllPlaces = function () {
         return data.allPlaces().then(function (places) {
@@ -29,13 +32,32 @@
         })
     }
 
+    var loadUsersGreetingsMessage = function () {
+        var userInformation = data.getUserInformation();
+        var userMessage = {};
+        if (userInformation) {
+            var msg = "Hello, " + userInformation.nickName;
+            userMessage = new models.UserGreetingModel(msg);
+        }
+        else {
+            userMessage = new models.UserGreetingModel("Please consider joining us");
+        }
+
+        return userMessage;
+    }
+
+    var registerUser = function (userName, nickName, password) {
+       return  apiClient.users.register(userName, nickName, password);
+    }
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
         loadPlaceDetails: loadPlaceDetails,
         currentPlace: placeDetails,
-        loadComments: loadComments
+        loadComments: loadComments,
+        loadUsersGreetingsMessage: loadUsersGreetingsMessage,
+        registerUser: registerUser
     })
 
 }())

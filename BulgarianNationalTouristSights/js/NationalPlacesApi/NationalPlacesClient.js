@@ -119,11 +119,12 @@
 
             this.settings.values["currentUser"] = userName;
             this.sensitiveStorage
-                .add(new Windows.Security.Credentials.PasswordCredential("nickname", userName, nickName));
+                .add(new Windows.Security.Credentials.PasswordCredential("nickName", userName, nickName));
             this.sensitiveStorage
                 .add(new Windows.Security.Credentials.PasswordCredential("sessionKey", userName, sessionKey));
             this.sensitiveStorage
                 .add(new Windows.Security.Credentials.PasswordCredential("authCode", userName, authCode));
+
         },
         _unloadUserData: function () {
             var username = this.settings.values["currentUser"];
