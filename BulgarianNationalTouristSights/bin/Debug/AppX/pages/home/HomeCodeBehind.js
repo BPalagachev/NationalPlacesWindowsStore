@@ -1,4 +1,32 @@
 ﻿(function () {
+    var attachUserManageEvent = function () {
+        var btnUserState = document.getElementById("cmdManageUsers");
+        var menu = document.getElementById("user-manage-menu").winControl;
+
+        btnUserState.addEventListener("click", function (event) {
+            menu.show();
+            //WinJS.Navigation.navigate("/pages/users/usersl.html", {});
+        });
+
+        var btnUserRegister = document.getElementById("navigate-user-register");
+        btnUserRegister.addEventListener("click", function (event) {
+            menu.hide();
+            WinJS.Navigation.navigate("/pages/users/usersl.html", {state: "register"});
+        });
+
+        var btnUserLogIn = document.getElementById("navigate-user-lonin");
+        btnUserLogIn.addEventListener("click", function (event) {
+            menu.hide();
+            WinJS.Navigation.navigate("/pages/users/usersl.html", {state: "login"});
+        });
+
+        var btnUserLogIn = document.getElementById("navigate-user-logout");
+        btnUserLogIn.addEventListener("click", function (event) {
+            menu.hide();
+            WinJS.Navigation.navigate("/pages/users/usersl.html", {state: "logout"});
+        });
+    }
+
     var goToDetailsPage = function (invokedEvent) {
         invokedEvent.detail.itemPromise.then(function (item) {
             WinJS.Navigation.navigate("/pages/placedetails/placedetails.html", {
@@ -11,6 +39,7 @@
 
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "HomeCodeBehind", {
-        goToDetailsPage: goToDetailsPage
+        goToDetailsPage: goToDetailsPage,
+        attachUserManageEvent: attachUserManageEvent
     });
 }())

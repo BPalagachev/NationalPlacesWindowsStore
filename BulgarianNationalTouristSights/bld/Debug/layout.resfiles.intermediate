@@ -20,3 +20,9 @@ pages\home\HomeCodeBehind.js
 pages\placedetails\placedetails.css
 pages\placedetails\placedetails.html
 pages\placedetails\placedetails.js
+pages\users\userlogin.html
+pages\users\userregister.html
+pages\users\UsersHomeBehind.js
+pages\users\usersl.css
+pages\users\usersl.html
+pages\users\usersl.js

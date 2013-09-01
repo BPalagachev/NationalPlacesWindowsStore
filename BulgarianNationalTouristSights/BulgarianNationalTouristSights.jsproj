@@ -75,6 +75,12 @@
     <Content Include="pages\placedetails\placedetails.css" />
     <Content Include="pages\placedetails\placedetails.html" />
     <Content Include="pages\placedetails\placedetails.js" />
+    <Content Include="pages\users\userlogin.html" />
+    <Content Include="pages\users\userregister.html" />
+    <Content Include="pages\users\UsersHomeBehind.js" />
+    <Content Include="pages\users\usersl.css" />
+    <Content Include="pages\users\usersl.html" />
+    <Content Include="pages\users\usersl.js" />
     <None Include="BulgarianNationalTouristSights_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

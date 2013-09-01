@@ -6,6 +6,7 @@
             return BulgarianNationalTouristSights.ViewModels.loadAllPlaces();
         },   
         ready: function (element, options) {
+            BulgarianNationalTouristSights.HomeCodeBehind.attachUserManageEvent();
         }
     });
 })();
