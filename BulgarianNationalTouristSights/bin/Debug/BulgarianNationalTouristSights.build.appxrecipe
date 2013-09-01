@@ -19,6 +19,9 @@
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.css">
       <PackagePath>pages\home\home.css</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\placedetails.css">
+      <PackagePath>pages\placedetails\placedetails.css</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\images\logo.png">
       <PackagePath>images\logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -56,17 +59,29 @@
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\navigator.js">
       <PackagePath>js\navigator.js</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\repeaterControl.js">
+      <PackagePath>js\repeaterControl.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\viewmodels.js">
       <PackagePath>js\viewmodels.js</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.js">
       <PackagePath>pages\home\home.js</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\HomeCodeBehind.js">
+      <PackagePath>pages\home\HomeCodeBehind.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\placedetails.js">
+      <PackagePath>pages\placedetails\placedetails.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.html">
       <PackagePath>pages\home\home.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\default.html">
       <PackagePath>default.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\placedetails.html">
+      <PackagePath>pages\placedetails\placedetails.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

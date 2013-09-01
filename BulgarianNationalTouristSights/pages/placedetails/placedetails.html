@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>placedetails</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="placedetails.css" rel="stylesheet" />
+    <script src="placedetails.js"></script>
+</head>
+<body>
+    <div id="place-datails-template" data-win-control="WinJS.Binding.Template">
+        <div class="place-details">
+            <h2 data-win-bind="innerText: name"></h2>
+            <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
+            <br />
+            <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
+            <br />
+        </div>
+    </div>
+
+    <div id="comments-template" data-win-control="WinJS.Binding.Template">
+        <div class="place-comments">
+            <h2  data-win-bind="innerText: authorname"></h2>
+            <div  data-win-bind="innerText: content"></div>
+        </div>
+    </div>
+
+
+    <div class="placedetails fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Welcome to placedetails</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="place-datails"></div>
+            <div id="coments-container"></div>
+        </section>
+
+
+    </div>
+</body>
+</html>

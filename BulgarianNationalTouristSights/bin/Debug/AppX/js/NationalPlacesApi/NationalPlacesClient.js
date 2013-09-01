@@ -181,7 +181,7 @@
             var url = this.serviceUrl + "details?identifier=" + identifier;
             return httpRequester.getJson(url).then(function (data) {
                 return JSON.parse(data.responseText);
-            });;
+            });
         },
         comment: function (sessionKey, latitude, longitude, identifier, cipher, text) {
             headers = { "X-sessionKey": sessionKey };
@@ -196,6 +196,16 @@
                 }
 
             return httpRequester.postJson(url, data, headers);
+        },
+        getComments: function(sessionKey, placeId){
+            headers = { "X-sessionKey": sessionKey };
+            var url = this.serviceUrl + "getcomments?identifier=" + placeId;
+
+            return httpRequester.getJson(url, headers).then(function (data) {
+                return JSON.parse(data.responseText);
+            }, function (error) {
+                var bp = 10;
+            });
         },
         _cipherCoordinates: function (latitude, longitude, cipher) {
             var coordinates = latitude + ";" + longitude;

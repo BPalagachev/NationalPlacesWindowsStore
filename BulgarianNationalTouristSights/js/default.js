@@ -28,10 +28,9 @@
                 //});
 
 
-                BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function(){
-                    var bp = 3;
+               
 
-                });
+               
                 //var places = BulgarianNationalTouristSights.ViewModels.allPlaces;
 
 

@@ -1,6 +1,7 @@
 ﻿.win-listview {
     overflow: hidden;
-    height: 800px;
+    height: 85%;
+    
 }
 
 .win-listview .win-item {

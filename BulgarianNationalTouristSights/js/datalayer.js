@@ -8,6 +8,7 @@
     var apiClient = NationalPlacesApi.getClient("http://localhost:45021/api/", applicationSettings, vault);
 
     var cacheAllPlacesFilaName = "allplacescache.txt";
+    var cachePlaceFilaNameRoot = "placeNumber";
 
     var allPlaces = [];
 
@@ -50,8 +51,57 @@
             });
     }
 
+    var getPlaceDetails = function (placeId) {
+        return tempStorage.getFileAsync(cachePlaceFilaNameRoot + placeId + ".txt")
+             .then(function (file) {
+                 return Windows.Storage.FileIO.readTextAsync(file);
+             })
+            .then(function (text) {
+                var placeDetails = JSON.parse(text);
+                return placeDetails;
+            })
+            .then(function (placeDetails) {
+                return placeDetails;
+            }, function (error) {
+                return apiClient.places.placeDetails(placeId).then(function (data) {
+                    return data;
+                }).then(function (data) {
+                    return tempStorage.createFileAsync(cachePlaceFilaNameRoot + placeId + ".txt",
+                        Windows.Storage.CreationCollisionOption.replaceExisting)
+                    .then(function (file) {
+                        var allPlacesStr = JSON.stringify(data);
+                        Windows.Storage.FileIO.writeTextAsync(file, allPlacesStr);
+                        return data;
+                    })
+                })
+            });
+
+       // return apiClient.places.placeDetails(placeId);
+    }
+
+    var getComments = function (placeId) {
+        var currentUser = apiClient.users.isUserLoggedIn();
+        var promise = new WinJS.Promise(function (success, error) {
+            //if (currentUser) {
+            if(true){
+
+                apiClient.places.getComments("48qzyuMtxDKrlvJoLzSYwqzcSDvZpXrBVffOeXUbtZrwPadoBd", placeId)// currentUser.sessionKey
+                .then(function(comments){
+                    success(comments);
+                })
+            }
+            else {
+                error("You need to be logged in to view comments")
+            }
+        });
+        
+        return promise;
+    }
+       
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "Data", {
-        allPlaces: getAllPlaces
+        allPlaces: getAllPlaces,
+        getPlaceDetails: getPlaceDetails,
+        getComments: getComments
     });
 
-}())
+    }())

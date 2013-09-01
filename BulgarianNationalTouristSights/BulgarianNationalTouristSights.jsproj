@@ -65,11 +65,16 @@
     <Content Include="js\models.js" />
     <Content Include="js\NationalPlacesApi\NationalPlacesClient.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="js\repeaterControl.js" />
     <Content Include="js\viewmodels.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
     <Content Include="default.html" />
+    <Content Include="pages\home\HomeCodeBehind.js" />
+    <Content Include="pages\placedetails\placedetails.css" />
+    <Content Include="pages\placedetails\placedetails.html" />
+    <Content Include="pages\placedetails\placedetails.js" />
     <None Include="BulgarianNationalTouristSights_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
