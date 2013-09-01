@@ -19,6 +19,7 @@
     <script src="js/datalayer.js"></script>
     <script src="js/viewmodels.js"></script>
     <script src="js/repeaterControl.js"></script>
+    <script src="js/DefaultCodeBehind.js"></script>
 
     <script src="/js/default.js"></script>
     <script src="/js/navigator.js"></script>
@@ -28,5 +29,22 @@
     <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
     </div> -->
+    <div id="appbar-id" data-win-control="WinJS.UI.AppBar" data-win-options="">
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{id:'cmdManageUsers',label:'Users',icon:'emoji',
+                section:'selection',tooltip:'Manage User State'}">
+        </button>
+    </div>
+
+    <div id="user-manage-menu" data-win-control="WinJS.UI.Menu" data-win-options="{anchor:'cmdManageUsers'}">
+        <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-register',label:'Register'}"></button>
+        <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-lonin',label:'Log In'}"></button>
+        <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-logout',label:'Log Out'}"></button>
+    </div>
+
+    <div id="logout-flyout" data-win-control="WinJS.UI.Flyout">
+        <label id="logout-status-msg"></label>
+    </div>
 </body>
 </html>

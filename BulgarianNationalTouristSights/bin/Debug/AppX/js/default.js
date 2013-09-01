@@ -35,20 +35,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
             } else {
@@ -60,6 +46,7 @@
                 nav.history = app.sessionState.history;
             }
             args.setPromise(WinJS.UI.processAll().then(function () {
+                BulgarianNationalTouristSights.DefaultCodeBehind.attachUserManageEvent();
                 if (nav.location) {
                     nav.history.current.initialPlaceholder = true;
                     return nav.navigate(nav.location, nav.state);
