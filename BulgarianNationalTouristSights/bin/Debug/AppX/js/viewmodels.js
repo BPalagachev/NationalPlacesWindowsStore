@@ -58,6 +58,14 @@
         return apiClient.users.login(username, password);
     }
 
+    var commentPlace = function ( placeId, text) {
+        var userInfo = apiClient.users.isUserLoggedIn();
+        var latitude = 41.516666;
+        var longitude = 24.666668;
+
+        return apiClient.places.comment(userInfo.sessionKey, latitude, longitude, placeId, userInfo.authCode, text)
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
@@ -67,7 +75,8 @@
         loadUsersGreetingsMessage: loadUsersGreetingsMessage,
         registerUser: registerUser,
         userLogout: userLogout,
-        userLogIn: userLogIn
+        userLogIn: userLogIn,
+        commentPlace: commentPlace
     })
 
 }())

@@ -11,6 +11,6 @@
 
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "HomeCodeBehind", {
-        goToDetailsPage: goToDetailsPage,
+        goToDetailsPage: goToDetailsPage
     });
 }())

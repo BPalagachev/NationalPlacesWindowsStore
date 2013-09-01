@@ -21,9 +21,11 @@ pages\home\home.css
 pages\home\home.html
 pages\home\home.js
 pages\home\HomeCodeBehind.js
+pages\placedetails\addcomment.html
 pages\placedetails\placedetails.css
 pages\placedetails\placedetails.html
 pages\placedetails\placedetails.js
+pages\placedetails\PlaceDetailsCodeBehind.js
 pages\users\userlogin.html
 pages\users\userregister.html
 pages\users\UsersHomeBehind.js

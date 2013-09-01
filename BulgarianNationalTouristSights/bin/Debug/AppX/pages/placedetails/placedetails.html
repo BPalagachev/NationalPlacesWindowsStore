@@ -8,6 +8,7 @@
     <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
     <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    <script src="PlaceDetailsCodeBehind.js"></script>
 
     <link href="placedetails.css" rel="stylesheet" />
     <script src="placedetails.js"></script>
@@ -25,8 +26,8 @@
 
     <div id="comments-template" data-win-control="WinJS.Binding.Template">
         <div class="place-comments">
-            <h2  data-win-bind="innerText: authorname"></h2>
-            <div  data-win-bind="innerText: content"></div>
+            <h2 data-win-bind="innerText: authorname"></h2>
+            <div data-win-bind="innerText: content"></div>
         </div>
     </div>
 
@@ -40,9 +41,10 @@
         </header>
         <section aria-label="Main content" role="main">
             <div id="place-datails"></div>
-            <div id="coments-container">
-                <div>tuka dali moe be</div>
-            </div>
+            
+            <div id="add-comment-container"></div>
+            <div id="addcomments-status-msg"></div>
+            <div id="coments-container"></div>
         </section>
     </div>
 </body>

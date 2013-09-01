@@ -9,6 +9,8 @@
                 if (!element) {
                     element = document.createElement("div");
                     document.body.appendChild(element);
+                } else {
+                    element.innerHTML = "";
                 }
                 if (observableCollection.length == 0) {
                     return;
