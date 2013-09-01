@@ -9,7 +9,7 @@
             BulgarianNationalTouristSights
                 .ViewModels.registerUser(registerUserName, registerNickName, registerPassword)
                 .then(function (data) {
-                    WinJS.Navigation.navigate("/pages/home/home.html", { });
+                    WinJS.Navigation.navigate("/pages/home/home.html", {});
 
                 }, function (error) {
                     var errorMessage = document.getElementById("user-error-messages");
@@ -24,18 +24,26 @@
 
     }
 
-    var logout = function () {
-    }
-
     var login = function () {
+        var loginUserName = document.getElementById("username-login").value;
+        var loginPassword = document.getElementById("password-login").value;
+
+        BulgarianNationalTouristSights
+           .ViewModels.userLogIn(loginUserName, loginPassword)
+           .then(function (data) {
+               WinJS.Navigation.navigate("/pages/home/home.html", {});
+
+           }, function (error) {
+               var errorMessage = document.getElementById("user-error-messages");
+               errorMessage.innerHTML = error.responseText;
+           })
     }
 
-   
+
 
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "UsersHomeBehind", {
         register: register,
-        logout: logout,
         login: login
     });
 }())

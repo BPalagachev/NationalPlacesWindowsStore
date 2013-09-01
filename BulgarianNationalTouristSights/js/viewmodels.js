@@ -50,6 +50,14 @@
        return  apiClient.users.register(userName, nickName, password);
     }
 
+    var userLogout = function () {
+       return apiClient.users.logout()
+    }
+
+    var userLogIn = function (username, password) {
+        return apiClient.users.login(username, password);
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
@@ -57,7 +65,9 @@
         currentPlace: placeDetails,
         loadComments: loadComments,
         loadUsersGreetingsMessage: loadUsersGreetingsMessage,
-        registerUser: registerUser
+        registerUser: registerUser,
+        userLogout: userLogout,
+        userLogIn: userLogIn
     })
 
 }())

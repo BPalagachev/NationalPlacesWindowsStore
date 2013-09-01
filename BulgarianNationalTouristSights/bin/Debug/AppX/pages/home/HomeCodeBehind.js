@@ -22,11 +22,20 @@
             WinJS.Navigation.navigate("/pages/users/usersl.html", { state: "login" });
         });
 
-        var btnUserLogIn = document.getElementById("navigate-user-logout");
-        btnUserLogIn.addEventListener("click", function (event) {
+        var btnLogOut = document.getElementById("navigate-user-logout");
+        btnLogOut.addEventListener("click", function (event) {
             menu.hide();
             appBar.hide();
-            WinJS.Navigation.navigate("/pages/users/usersl.html", { state: "logout" });
+            var flyoutContainer = document.getElementById("logout-flyout");
+            var flyout = flyoutContainer.winControl;
+            BulgarianNationalTouristSights.ViewModels.userLogout().then(function (success) {
+                var logoutstatus = document.getElementById("logout-status-msg");
+                logoutstatus.innerText = "Logout Successfully!";
+                flyout.show(btnLogOut);
+            }, function (error) {
+                logoutstatus.innerText = "Please try later!";
+                flyout.show(btnLogOut);
+            })
         });
     }
 
