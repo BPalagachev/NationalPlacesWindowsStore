@@ -12,31 +12,11 @@
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
+            BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function () {
+                // BulgarianNationalTouristSights.ViewModels.unmarkVIsitedPlaces()
+            });
+
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-
-                //var container = document.createElement("div");
-                //document.body.appendChild(container);
-
-                //BulgarianNationalTouristSights.Data.allPlaces().then(function (data) {
-                //    var p = document.createElement("p");
-                //    p.innerText = JSON.stringify(data);
-                //    container.appendChild(p);
-                //}, function (error) {
-                //    var p = document.createElement("p");
-                //    p.innerText = JSON.stringify(error.responseText);
-                //    container.appendChild(p);
-                //});
-
-
-               
-
-               
-                //var places = BulgarianNationalTouristSights.ViewModels.allPlaces;
-
-
-
-                // TODO: This application has been newly launched. Initialize
-                // your application here.
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.

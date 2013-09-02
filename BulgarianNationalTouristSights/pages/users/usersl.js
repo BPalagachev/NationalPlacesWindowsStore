@@ -7,6 +7,8 @@
         // This function is called whenever a user navigates to this page. It
         // populates the page elements with the app's data.
         ready: function (element, options) {
+            var romaingUserName = BulgarianNationalTouristSights.ViewModels.roamingUserName;
+
             var userContainer = document.getElementById("user-container");
 
             var userGreetingTemplate = document.getElementById("user-greeting-template").winControl;
@@ -17,7 +19,13 @@
             if (options.state == "register") {
                 WinJS.UI.Pages.render("/pages/users/userregister.html", userContainer);
             } else if (options.state == "login") {
-                WinJS.UI.Pages.render("/pages/users/userlogin.html", userContainer);
+                WinJS.UI.Pages.render("/pages/users/userlogin.html", userContainer).then(function(){
+                    if (romaingUserName) {
+                        var userNameField = document.getElementById("username-login");
+                        userNameField.value = romaingUserName;
+                    }
+                })
+
             }
 
             // TODO: Initialize the page here.

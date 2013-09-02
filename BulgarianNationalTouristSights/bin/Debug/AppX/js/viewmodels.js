@@ -1,7 +1,9 @@
 ﻿(function () {
+    var roamingSettings = Windows.Storage.ApplicationData.current.roamingSettings;
     var data = BulgarianNationalTouristSights.Data;
     var models = BulgarianNationalTouristSights.Models;
     var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
+    var gpsDevice = new Windows.Devices.Geolocation.Geolocator();
 
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
@@ -21,13 +23,11 @@
         return "";
     }
 
-
-
     var loadAllPlaces = function () {
         return data.allPlaces().then(function (places) {
-            places.forEach(function (place) {
-                allPlaces.push(new models.PlaceModel(place));
-            })
+                places.forEach(function (place) {
+                    allPlaces.push(new models.PlaceModel(place));
+                })
         }).then(function () {
             var userInfo = apiClient.users.isUserLoggedIn();
             if (userInfo) {
@@ -69,6 +69,7 @@
     }
 
     var registerUser = function (userName, nickName, password) {
+        roamingSettings.values["romaingUserName"] = userName;
         return apiClient.users.register(userName, nickName, password);
     }
 
@@ -79,6 +80,7 @@
     var userLogIn = function (username, password) {
         return apiClient.users.login(username, password).then(function () {
             var userInfo = apiClient.users.isUserLoggedIn();
+            roamingSettings.values["romaingUserName"] = userInfo.userName;
             if (userInfo) {
                 apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
                     for (var i = 0; i < visitedPlacesArr.length; i++) {
@@ -91,18 +93,30 @@
 
     var commentPlace = function (placeId, text) {
         var userInfo = apiClient.users.isUserLoggedIn();
-        var latitude = 42.331074;
-        var longitude = 23.560190;
+        //var latitude = 42.331074;
+        //var longitude = 23.560190;
 
-        return apiClient.places.comment(userInfo.sessionKey, latitude, longitude, placeId, userInfo.authCode, text)
+        return getLocation().then(function (pos) {
+            var latitude = pos.coordinate.latitude;
+            var longitude = pos.coordinate.longitude;
+            return apiClient.places.comment(userInfo.sessionKey, latitude, longitude, placeId, userInfo.authCode, text)
+        })
     }
 
     var visitPlace = function () {
         var userInfo = apiClient.users.isUserLoggedIn();
-        var latitude = 42.331074;
-        var longitude = 23.560190;
+        //var latitude = 42.331074;
+        //var longitude = 23.560190;
 
-        return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
+        return getLocation().then(function (pos) {
+            var latitude = pos.coordinate.latitude;
+            var longitude = pos.coordinate.longitude;
+            return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
+
+        })
+        //var latitude = 42.331074;
+        //var longitude = 23.560190;
+        //return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
     }
 
     var markPlaceAsVisited = function (placeId) {
@@ -133,6 +147,11 @@
         }
     }
 
+    var getLocation = function () {
+        return gpsDevice.getGeopositionAsync();
+    }
+
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
@@ -146,7 +165,8 @@
         commentPlace: commentPlace,
         visitPlace: visitPlace,
         markAsVisited: markPlaceAsVisited,
-        unmarkVIsitedPlaces: unmarkVisitedPlaces
+        unmarkVIsitedPlaces: unmarkVisitedPlaces,
+        roamingUserName: roamingSettings.values["romaingUserName"]
     })
 
 }())
