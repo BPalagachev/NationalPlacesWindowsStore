@@ -1,4 +1,5 @@
 ﻿(function () {
+    var sessionState = WinJS.Application.sessionState;
     var currentPlaceId = 0;
     var renderedComments = [];
 
@@ -44,7 +45,9 @@
 
     var openCommentsForm = function () {
         var formContainer = document.getElementById("add-comment-container");
-        WinJS.UI.Pages.render("/pages/placedetails/addcomment.html", formContainer);
+        WinJS.UI.Pages.render("/pages/placedetails/addcomment.html", formContainer).then(function(){
+            loadPageSession();
+        });
     }
 
     var showPlacesCommands = function () {
@@ -91,6 +94,35 @@
 
     }
 
+
+    var savePageSession = function () {
+        var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+        var placeId = visitedPlaceInfo.value;
+        var commentsTextArea = document.getElementById("comments-textarea");
+        if (commentsTextArea) {
+            var commentsState = commentsTextArea.innerText;
+            var data = {
+                id: placeId,
+                text: commentsState
+            }
+
+            BulgarianNationalTouristSights.ViewModels.saveKeyToSessionState("comment" + placeId, data);
+        }
+    }
+
+    var loadPageSession = function () {
+        var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+        var placeId = visitedPlaceInfo.value;
+
+        var sessionData = BulgarianNationalTouristSights.ViewModels.loadKeyToSessionState("comment" + placeId);
+        if (sessionData && sessionData.text != "") {
+            var commentsTextArea = document.getElementById("comments-textarea");
+            commentsTextArea.value = sessionData.text;
+        }
+
+
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "PlaceDetailsCodeBehind", {
         showContextualCommands: showPlacesCommands,
         hideContextualCommands: hidePlacesCommands,
@@ -101,6 +133,9 @@
         renderComments: renderComments,
         visitPlace: visitPlace,
         attachVisitPlace: attachVisitPlace,
-        detachVisitPlace: detachVisitPlace
+        detachVisitPlace: detachVisitPlace,
+        savePageSession: savePageSession,
+        loadPageSession: loadPageSession,
+        openCommentsForm: openCommentsForm
     });
 }())

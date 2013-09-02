@@ -18,8 +18,7 @@
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
             } else {
-                // TODO: This application has been reactivated from suspension.
-                // Restore application state here.
+                BulgarianNationalTouristSights.ViewModels.loadSessionState();
             }
 
             if (app.sessionState.history) {
@@ -43,6 +42,9 @@
         // complete an asynchronous operation before your application is 
         // suspended, call args.setPromise().
         app.sessionState.history = nav.history;
+
+        BulgarianNationalTouristSights.PlaceDetailsCodeBehind.savePageSession();
+        BulgarianNationalTouristSights.ViewModels.persistSessionState();
     };
 
     app.start();

@@ -29,6 +29,13 @@
 
                 details.then(function (data) {
                     placeDetailsTemplate.render(data, placeDetailsContainer);
+                }).then(function(){
+                    var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+                    var placeId = visitedPlaceInfo.value;
+                    var sessionData = BulgarianNationalTouristSights.ViewModels.loadKeyToSessionState("comment" + placeId);
+                    if (sessionData && sessionData.text != "") {
+                        BulgarianNationalTouristSights.PlaceDetailsCodeBehind.openCommentsForm();
+                    }
                 });
 
                 comments.then(function (data) {
@@ -46,7 +53,7 @@
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.hideContextualCommands();
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachShowCommentsForm();
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachVisitPlace();
-
+            BulgarianNationalTouristSights.PlaceDetailsCodeBehind.savePageSession();
             // TODO: Respond to navigations away from this page.
         },
 

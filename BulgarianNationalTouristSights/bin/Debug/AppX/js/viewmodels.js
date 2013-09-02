@@ -1,4 +1,6 @@
 ﻿(function () {
+    var applicationSession = WinJS.Application.sessionState;
+
     var roamingSettings = Windows.Storage.ApplicationData.current.roamingSettings;
     var data = BulgarianNationalTouristSights.Data;
     var models = BulgarianNationalTouristSights.Models;
@@ -8,6 +10,7 @@
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
     var placeDetails;
+    var applicationSessionState = {};
     var allplacesList = new WinJS.Binding.List([]);
     var allPlaces = allplacesList.createGrouped(getGroupKey, getGroupData, compareGroups);
 
@@ -150,6 +153,24 @@
     var getLocation = function () {
         return gpsDevice.getGeopositionAsync();
     }
+   
+    var loadSessionState = function () {
+        if (WinJS.Application.sessionState["NationalPlacesState"]) {
+            applicationSessionState = JSON.parse(WinJS.Application.sessionState["NationalPlacesState"]);
+        }
+    }
+
+    var persistSessionState = function () {
+        applicationSession["NationalPlacesState"] = JSON.stringify(applicationSessionState);
+    }
+
+    var saveKeyToSessionState = function(key, dataObj){
+        applicationSessionState[key] = dataObj;
+    }
+    
+    var loadKeyToSessionState = function (key) {
+        return applicationSessionState[key];
+    }
 
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
@@ -166,7 +187,12 @@
         visitPlace: visitPlace,
         markAsVisited: markPlaceAsVisited,
         unmarkVIsitedPlaces: unmarkVisitedPlaces,
-        roamingUserName: roamingSettings.values["romaingUserName"]
+        roamingUserName: roamingSettings.values["romaingUserName"],
+        loadSessionState: loadSessionState,
+        persistSessionState: persistSessionState,
+        applicationSessionState: applicationSessionState,
+        saveKeyToSessionState: saveKeyToSessionState,
+        loadKeyToSessionState: loadKeyToSessionState
     })
 
 }())
