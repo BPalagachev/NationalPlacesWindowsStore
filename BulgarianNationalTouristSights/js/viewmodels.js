@@ -28,9 +28,9 @@
 
     var loadAllPlaces = function () {
         return data.allPlaces().then(function (places) {
-                places.forEach(function (place) {
-                    allPlaces.push(new models.PlaceModel(place));
-                })
+            places.forEach(function (place) {
+                allPlaces.push(new models.PlaceModel(place));
+            })
         }).then(function () {
             var userInfo = apiClient.users.isUserLoggedIn();
             if (userInfo) {
@@ -96,9 +96,6 @@
 
     var commentPlace = function (placeId, text) {
         var userInfo = apiClient.users.isUserLoggedIn();
-        //var latitude = 42.331074;
-        //var longitude = 23.560190;
-
         return getLocation().then(function (pos) {
             var latitude = pos.coordinate.latitude;
             var longitude = pos.coordinate.longitude;
@@ -108,18 +105,11 @@
 
     var visitPlace = function () {
         var userInfo = apiClient.users.isUserLoggedIn();
-        //var latitude = 42.331074;
-        //var longitude = 23.560190;
-
         return getLocation().then(function (pos) {
             var latitude = pos.coordinate.latitude;
             var longitude = pos.coordinate.longitude;
             return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
-
         })
-        //var latitude = 42.331074;
-        //var longitude = 23.560190;
-        //return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
     }
 
     var markPlaceAsVisited = function (placeId) {
@@ -127,14 +117,18 @@
             var place = allPlaces.getItem(i).data;
             if (place.placeIndentifier == placeId) {
                 place.visited = "placeVisited";
+                if (place.name.indexOf("(visited)") <= 0) {
+                    place.name += "(visited)";
+                }
             }
         }
     }
 
-    var unmarkVisitedPlaces = function (placeId) {
+    var unmarkVisitedPlaces = function () {
         for (var i = 0; i < allPlaces.length; i++) {
             var place = allPlaces.getItem(i).data;
             place.visited = "notVisitedPlace";
+            place.name = place.name.substring(0, place.name.indexOf("(visited)"));
         }
 
     }
@@ -153,7 +147,7 @@
     var getLocation = function () {
         return gpsDevice.getGeopositionAsync();
     }
-   
+
     var loadSessionState = function () {
         if (WinJS.Application.sessionState["NationalPlacesState"]) {
             applicationSessionState = JSON.parse(WinJS.Application.sessionState["NationalPlacesState"]);
@@ -164,10 +158,10 @@
         applicationSession["NationalPlacesState"] = JSON.stringify(applicationSessionState);
     }
 
-    var saveKeyToSessionState = function(key, dataObj){
+    var saveKeyToSessionState = function (key, dataObj) {
         applicationSessionState[key] = dataObj;
     }
-    
+
     var loadKeyToSessionState = function (key) {
         return applicationSessionState[key];
     }
@@ -192,7 +186,8 @@
         persistSessionState: persistSessionState,
         applicationSessionState: applicationSessionState,
         saveKeyToSessionState: saveKeyToSessionState,
-        loadKeyToSessionState: loadKeyToSessionState
+        loadKeyToSessionState: loadKeyToSessionState,
+        getVisitedPlaced: getVisitedPlaced
     })
 
 }())

@@ -8,7 +8,7 @@
         ready: function (element, options) {
             // BulgarianNationalTouristSights.HomeCodeBehind.attachUserManageEvent();
             // BulgarianNationalTouristSights.ViewModels.markAsVisited();
-
+            BulgarianNationalTouristSights.ViewModels.getVisitedPlaced();
         }
     });
 })();

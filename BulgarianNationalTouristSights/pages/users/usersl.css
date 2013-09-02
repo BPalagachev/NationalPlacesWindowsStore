@@ -3,6 +3,25 @@
     margin-right: 120px;
 }
 
+fieldset {
+    padding: 5%;
+    width: 50%;
+    margin: 0 auto;
+
+    padding-right: 50px;
+}
+legend {
+    padding:5px;
+    text-align:center;
+    font-size: 1.5em;
+}
+
+input {
+
+}
+
+
+
 @media screen and (-ms-view-state: snapped) {
     .usersl section[role=main] {
         margin-left: 20px;

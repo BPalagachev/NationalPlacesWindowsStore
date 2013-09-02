@@ -3,6 +3,38 @@
     margin-right: 120px;
 }
 
+.placeVisited {
+    background-color: #B5B5B5;
+    width: 100%;
+    height: 100%;
+ }
+
+.placeVisited h3 ::after {
+    content: "(visited)";
+ }
+
+#holder
+{
+    height: 100%; 
+}
+
+.win-listview 
+{
+    height: 85%; 
+}
+
+
+.place-tile {  
+     width: 300px;
+     height: 100px;
+}
+
+.win-container {
+    background-color: #76B5C6;
+}
+
+/*win-template win-item*/
+
 @media screen and (-ms-view-state: snapped) {
     .homepage section[role=main] {
         margin-left: 20px;

@@ -1,6 +1,25 @@
-﻿.placedetails section[role=main] {
+﻿#coments-container {
+    padding-top: 15px;
+    width: 85%;
+    overflow:auto;
+    height: 300px;
+}
+.placedetails section[role=main] {
     margin-left: 120px;
     margin-right: 120px;
+}
+
+fieldset {
+    width: 35%;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+legend {
+    padding:5px;
+    text-align:center;
+    font-size: 1.5em;
 }
 
 @media screen and (-ms-view-state: snapped) {

@@ -12,7 +12,7 @@
         BulgarianNationalTouristSights.ViewModels.commentPlace(placeId, text).then(function () {
             statusDisplay.innerText = "Comment added!"
             var formContainer = document.getElementById("add-comment-container").innerHTML = "";
-            renderedComments.push({
+            renderedComments.unshift({
                 authorname: "You just commented: ",
                 content: text
             });
@@ -45,9 +45,15 @@
 
     var openCommentsForm = function () {
         var formContainer = document.getElementById("add-comment-container");
-        WinJS.UI.Pages.render("/pages/placedetails/addcomment.html", formContainer).then(function(){
-            loadPageSession();
-        });
+        var currentform = document.getElementById("add-comment-form");
+        if (currentform) {
+            formContainer.innerHTML = "";
+        }
+        else {
+            WinJS.UI.Pages.render("/pages/placedetails/addcomment.html", formContainer).then(function () {
+                loadPageSession();
+            });
+        }
     }
 
     var showPlacesCommands = function () {

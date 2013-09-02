@@ -27,6 +27,7 @@
         this.group = placeDetailsDto.group;
         this.longitude = placeDetailsDto.longitude;
         this.latitude = placeDetailsDto.latitude;
+        this.information = "information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information ";
     }, {
         name: "",
         url: "",
@@ -34,6 +35,7 @@
         group: 0,
         longitude: "",
         latitude: "",
+        information: ""
     });
 
 
