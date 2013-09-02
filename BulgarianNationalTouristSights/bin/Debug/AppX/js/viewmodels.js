@@ -5,9 +5,23 @@
 
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
-
-    var allPlaces = new WinJS.Binding.List([]);
     var placeDetails;
+    var allplacesList = new WinJS.Binding.List([]);
+    var allPlaces = allplacesList.createGrouped(getGroupKey, getGroupData, compareGroups);
+
+    function compareGroups(leftKey, rightKey) {
+        return leftKey - rightKey;
+    }
+
+    function getGroupKey(dataItem) {
+        return dataItem.group;
+    }
+
+    function getGroupData(dataItem) {
+        return "";
+    }
+
+
 
     var loadAllPlaces = function () {
         return data.allPlaces().then(function (places) {
@@ -77,16 +91,16 @@
 
     var commentPlace = function (placeId, text) {
         var userInfo = apiClient.users.isUserLoggedIn();
-        var latitude = 41.516666;
-        var longitude = 24.666668;
+        var latitude = 42.331074;
+        var longitude = 23.560190;
 
         return apiClient.places.comment(userInfo.sessionKey, latitude, longitude, placeId, userInfo.authCode, text)
     }
 
     var visitPlace = function () {
         var userInfo = apiClient.users.isUserLoggedIn();
-        var latitude = 41.516666;
-        var longitude = 24.666668;
+        var latitude = 42.331074;
+        var longitude = 23.560190;
 
         return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
     }

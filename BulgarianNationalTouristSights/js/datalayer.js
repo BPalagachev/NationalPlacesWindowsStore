@@ -26,6 +26,7 @@
 
         return  tempStorage.getFileAsync(cacheAllPlacesFilaName)
              .then(function (file) {
+                 asdasda
                  return Windows.Storage.FileIO.readTextAsync(file);
              })
             .then(function (text) {
