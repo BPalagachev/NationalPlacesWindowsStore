@@ -19,6 +19,7 @@
         init: function (element, options) {
             details = BulgarianNationalTouristSights.ViewModels.loadPlaceDetails(options.invokedPlace.placeIndentifier);
             comments = BulgarianNationalTouristSights.ViewModels.loadComments(options.invokedPlace.placeIndentifier);
+            
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.currentPlaceId = options.invokedPlace.placeIndentifier;
         },
         ready: function (element, options) {
@@ -34,7 +35,7 @@
                     BulgarianNationalTouristSights.PlaceDetailsCodeBehind.renderComments(data);
                     BulgarianNationalTouristSights.PlaceDetailsCodeBehind.showContextualCommands();
                     BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachShowCommentsForm();
-
+                    BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachVisitPlace();
                 }, function (error) {
                     var bp = 3;
                 });
@@ -44,6 +45,7 @@
         unload: function () {
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.hideContextualCommands();
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachShowCommentsForm();
+            BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachVisitPlace();
 
             // TODO: Respond to navigations away from this page.
         },

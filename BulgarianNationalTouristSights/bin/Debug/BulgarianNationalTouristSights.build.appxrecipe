@@ -16,9 +16,6 @@
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\css\default.css">
       <PackagePath>css\default.css</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\comment\comment.css">
-      <PackagePath>pages\comment\comment.css</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.css">
       <PackagePath>pages\home\home.css</PackagePath>
     </AppxPackagedFile>
@@ -74,9 +71,6 @@
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\viewmodels.js">
       <PackagePath>js\viewmodels.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\comment\comment.js">
-      <PackagePath>pages\comment\comment.js</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.js">
       <PackagePath>pages\home\home.js</PackagePath>
     </AppxPackagedFile>
@@ -94,9 +88,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\usersl.js">
       <PackagePath>pages\users\usersl.js</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\comment\comment.html">
-      <PackagePath>pages\comment\comment.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.html">
       <PackagePath>pages\home\home.html</PackagePath>

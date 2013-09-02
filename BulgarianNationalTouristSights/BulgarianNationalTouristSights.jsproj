@@ -68,9 +68,6 @@
     <Content Include="js\navigator.js" />
     <Content Include="js\repeaterControl.js" />
     <Content Include="js\viewmodels.js" />
-    <Content Include="pages\comment\comment.css" />
-    <Content Include="pages\comment\comment.html" />
-    <Content Include="pages\comment\comment.js" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />

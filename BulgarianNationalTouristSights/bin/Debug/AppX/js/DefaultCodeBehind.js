@@ -33,7 +33,9 @@
                 logoutstatus.innerText = "Logout Successfully!";
                 flyout.show(btnLogOut);
                 WinJS.Navigation.navigate("/pages/home/home.html", {});
-            }, function (error) {
+            }).then(function(){
+                BulgarianNationalTouristSights.ViewModels.unmarkVIsitedPlaces();
+            }).then(function () { }, function (error) {
                 logoutstatus.innerText = "Please try later!";
                 flyout.show(btnLogOut);
             })

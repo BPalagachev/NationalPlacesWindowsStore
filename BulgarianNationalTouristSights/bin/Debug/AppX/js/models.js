@@ -7,6 +7,7 @@
         this.name = placeDto.name;
         this.placeIndentifier = placeDto.placeIndentifier;
         this.url = placeDto.url;
+        this.visited = "notvisitedPlace";
 
     }, {
         group: 0,
@@ -14,7 +15,8 @@
         longitude: "",
         name: "",
         placeIndentifier: 0,
-        url: ""
+        url: "",
+        visited: "visitedPlace"
     })
 
 

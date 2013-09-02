@@ -1,4 +1,8 @@
-﻿.win-listview {
+﻿.placeVisited {
+    background-color: red;
+}
+
+.win-listview {
     overflow: hidden;
     height: 85%;
     

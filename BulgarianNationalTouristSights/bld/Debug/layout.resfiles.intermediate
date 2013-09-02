@@ -14,9 +14,6 @@ js\NationalPlacesApi\NationalPlacesClient.js
 js\navigator.js
 js\repeaterControl.js
 js\viewmodels.js
-pages\comment\comment.css
-pages\comment\comment.html
-pages\comment\comment.js
 pages\home\home.css
 pages\home\home.html
 pages\home\home.js

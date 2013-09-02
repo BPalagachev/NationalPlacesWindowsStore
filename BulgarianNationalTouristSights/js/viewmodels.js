@@ -2,7 +2,7 @@
     var data = BulgarianNationalTouristSights.Data;
     var models = BulgarianNationalTouristSights.Models;
     var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
-   
+
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
 
@@ -14,6 +14,15 @@
             places.forEach(function (place) {
                 allPlaces.push(new models.PlaceModel(place));
             })
+        }).then(function () {
+            var userInfo = apiClient.users.isUserLoggedIn();
+            if (userInfo) {
+                apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
+                    for (var i = 0; i < visitedPlacesArr.length; i++) {
+                        markPlaceAsVisited(visitedPlacesArr[i]);
+                    }
+                })
+            }
         });
     };
 
@@ -22,12 +31,11 @@
             placeDetails = new WinJS.Binding.as(new models.PlaceDetails(data));
             return placeDetails;
         });
-
     };
 
     var loadComments = function (placeId) {
         return data.getComments(placeId).then(function (data) {
-            
+
             return data;
         })
     }
@@ -47,18 +55,27 @@
     }
 
     var registerUser = function (userName, nickName, password) {
-       return  apiClient.users.register(userName, nickName, password);
+        return apiClient.users.register(userName, nickName, password);
     }
 
     var userLogout = function () {
-       return apiClient.users.logout()
+        return apiClient.users.logout()
     }
 
     var userLogIn = function (username, password) {
-        return apiClient.users.login(username, password);
+        return apiClient.users.login(username, password).then(function () {
+            var userInfo = apiClient.users.isUserLoggedIn();
+            if (userInfo) {
+                apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
+                    for (var i = 0; i < visitedPlacesArr.length; i++) {
+                        markPlaceAsVisited(visitedPlacesArr[i]);
+                    }
+                })
+            }
+        });
     }
 
-    var commentPlace = function ( placeId, text) {
+    var commentPlace = function (placeId, text) {
         var userInfo = apiClient.users.isUserLoggedIn();
         var latitude = 41.516666;
         var longitude = 24.666668;
@@ -74,6 +91,34 @@
         return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
     }
 
+    var markPlaceAsVisited = function (placeId) {
+        for (var i = 0; i < allPlaces.length; i++) {
+            var place = allPlaces.getItem(i).data;
+            if (place.placeIndentifier == placeId) {
+                place.visited = "placeVisited";
+            }
+        }
+    }
+
+    var unmarkVisitedPlaces = function (placeId) {
+        for (var i = 0; i < allPlaces.length; i++) {
+            var place = allPlaces.getItem(i).data;
+            place.visited = "notVisitedPlace";
+        }
+
+    }
+
+    var getVisitedPlaced = function () {
+        var userInfo = apiClient.users.isUserLoggedIn();
+        if (userInfo) {
+            apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
+                for (var i = 0; i < visitedPlacesArr.length; i++) {
+                    markPlaceAsVisited(visitedPlacesArr[i]);
+                }
+            })
+        }
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
@@ -85,7 +130,9 @@
         userLogout: userLogout,
         userLogIn: userLogIn,
         commentPlace: commentPlace,
-        visitPlace: visitPlace
+        visitPlace: visitPlace,
+        markAsVisited: markPlaceAsVisited,
+        unmarkVIsitedPlaces: unmarkVisitedPlaces
     })
 
 }())

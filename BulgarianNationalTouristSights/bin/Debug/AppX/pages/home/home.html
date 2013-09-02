@@ -27,11 +27,13 @@
 
             <div id="allPlaces-template" data-win-control="WinJS.Binding.Template">
                 <div class="place-tile">
-                    <h3 data-win-bind="innerText: name"></h3>
-                    <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
-                    <br />
-                    <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
-                    <br />
+                    <div data-win-bind="className: visited">
+                        <h3 data-win-bind="innerText: name"></h3>
+                        <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
+                        <br />
+                        <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
+                        <br />
+                    </div>
                 </div>
             </div>
 
@@ -43,24 +45,6 @@
                     oniteminvoked: BulgarianNationalTouristSights.HomeCodeBehind.goToDetailsPage,
                 }">
             </div>
-
-           <!-- <div id="appbar-id" data-win-control="WinJS.UI.AppBar" data-win-options="">
-                <button
-                    data-win-control="WinJS.UI.AppBarCommand"
-                    data-win-options="{id:'cmdManageUsers',label:'Users',icon:'emoji',
-                section:'selection',tooltip:'Manage User State'}">
-                </button>
-            </div>
-
-            <div id="user-manage-menu" data-win-control="WinJS.UI.Menu" data-win-options="{anchor:'cmdManageUsers'}">
-                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-register',label:'Register'}"></button>
-                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-lonin',label:'Log In'}"></button>
-                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'navigate-user-logout',label:'Log Out'}"></button>
-            </div>
-
-             <div id="logout-flyout" data-win-control="WinJS.UI.Flyout" >
-                 <label id="logout-status-msg"></label>
-             </div>-->
         </section>
     </div>
 </body>

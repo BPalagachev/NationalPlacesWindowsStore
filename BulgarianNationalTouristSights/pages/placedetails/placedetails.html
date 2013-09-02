@@ -17,10 +17,12 @@
     <div id="place-datails-template" data-win-control="WinJS.Binding.Template">
         <div class="place-details">
             <h2 data-win-bind="innerText: name"></h2>
-            <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
+            <span>Latitude: </span>
+            <span data-win-bind="innerText: latitude"></span>
             <br />
             <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
             <br />
+            <input type="hidden" data-win-bind="value: placeIndentifier" />
         </div>
     </div>
 
