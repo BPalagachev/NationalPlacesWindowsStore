@@ -7,3 +7,7 @@ E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\Nationa
 E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\pri.resfiles
 E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\LanguageQualifiers.txt
 E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\ProjectArchitectures.txt
+E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\priconfig.xml.intermediate
+E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\layout.resfiles.intermediate
+E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\resources.resfiles.intermediate
+E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bld\Debug\pri.resfiles.intermediate

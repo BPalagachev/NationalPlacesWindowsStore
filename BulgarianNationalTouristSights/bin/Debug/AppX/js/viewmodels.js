@@ -140,6 +140,8 @@
                 for (var i = 0; i < visitedPlacesArr.length; i++) {
                     markPlaceAsVisited(visitedPlacesArr[i]);
                 }
+            }, function (error) {
+                var er = 5;
             })
         }
     }

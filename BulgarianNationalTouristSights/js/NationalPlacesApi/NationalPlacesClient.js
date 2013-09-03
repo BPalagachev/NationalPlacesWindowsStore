@@ -176,6 +176,8 @@
             var url = this.serviceUrl + "myplaces";
             return httpRequester.getJson(url, headers).then(function (data) {
                 return JSON.parse(data.responseText);
+            }, function () {
+                return [];
             });
         },
         placeDetails: function (identifier) {

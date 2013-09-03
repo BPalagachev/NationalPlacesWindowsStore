@@ -2,7 +2,7 @@
 
 (function () {
     var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
-    
+
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
     var cacheAllPlacesFilaName = "allplacescache.txt";
@@ -15,7 +15,7 @@
         if (allPlaces.length == 0) {
             return loadPlaceData();
         } else {
-            var promise = new WinJS.Promise(function (success, error){
+            var promise = new WinJS.Promise(function (success, error) {
                 success(allPlaces);
             })
             return promise;
@@ -24,30 +24,31 @@
 
     var loadPlaceData = function () {
 
-        return  tempStorage.getFileAsync(cacheAllPlacesFilaName)
+        return tempStorage.getFileAsync(cacheAllPlacesFilaName)
              .then(function (file) {
-                 //asdasda
                  return Windows.Storage.FileIO.readTextAsync(file);
              })
             .then(function (text) {
+                aasdasd
                 allPlaces = JSON.parse(text);
                 return allPlaces;
             })
             .then(function (places) {
                 return places;
-            }, function (error) {
-                return apiClient.places.getAllPlaces().then(function (data) {
-                    allPlaces = data;
-                    return data;
-                }).then(function (data) {
-                    return tempStorage.createFileAsync(cacheAllPlacesFilaName, Windows.Storage.CreationCollisionOption.replaceExisting)
-                    .then(function (file) {
-                        var allPlacesStr = JSON.stringify(data);
-                        Windows.Storage.FileIO.writeTextAsync(file, allPlacesStr);
-                        return allPlaces;
-                    })
-                })
-            });
+            }).then(function (places) { return places },
+                    function (error) {
+                        return apiClient.places.getAllPlaces().then(function (data) {
+                            allPlaces = data;
+                            return data;
+                        }).then(function (data) {
+                            return tempStorage.createFileAsync(cacheAllPlacesFilaName, Windows.Storage.CreationCollisionOption.replaceExisting)
+                            .then(function (file) {
+                                var allPlacesStr = JSON.stringify(data);
+                                Windows.Storage.FileIO.writeTextAsync(file, allPlacesStr);
+                                return allPlaces;
+                            })
+                        })
+                    });
     }
 
     var getPlaceDetails = function (placeId) {
@@ -75,7 +76,7 @@
                 })
             });
 
-       // return apiClient.places.placeDetails(placeId);
+        // return apiClient.places.placeDetails(placeId);
     }
 
     var getComments = function (placeId) {
@@ -83,7 +84,7 @@
         var promise = new WinJS.Promise(function (success, error) {
             if (currentUser) {
                 apiClient.places.getComments(currentUser.sessionKey, placeId)// currentUser.sessionKey
-                .then(function(comments){
+                .then(function (comments) {
                     success(comments);
                 })
             }
@@ -91,10 +92,10 @@
                 error("You need to be logged in to view comments")
             }
         });
-        
+
         return promise;
     }
-       
+
     var getUserInfomation = function () {
         return apiClient.users.isUserLoggedIn();
     }
@@ -106,4 +107,4 @@
         getUserInformation: getUserInfomation
     });
 
-    }())
+}())

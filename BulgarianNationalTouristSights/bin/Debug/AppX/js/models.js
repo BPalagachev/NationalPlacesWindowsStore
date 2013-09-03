@@ -27,7 +27,7 @@
         this.group = placeDetailsDto.group;
         this.longitude = placeDetailsDto.longitude;
         this.latitude = placeDetailsDto.latitude;
-        this.information = "information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information information ";
+        this.information = placeDetailsDto.information;
     }, {
         name: "",
         url: "",

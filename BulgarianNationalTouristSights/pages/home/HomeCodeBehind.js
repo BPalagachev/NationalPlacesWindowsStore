@@ -9,8 +9,7 @@
 
     WinJS.Utilities.markSupportedForProcessing(goToDetailsPage);
 
-
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "HomeCodeBehind", {
-        goToDetailsPage: goToDetailsPage
-    });
+        goToDetailsPage: goToDetailsPage,
+      });
 }())

@@ -15,6 +15,8 @@
 
     <link href="/css/default.css" rel="stylesheet" />
     <script src="js/bulgarianNationalTouristSights.js"></script>
+
+    <script src="js/DomGenerator.js"></script>
     <script src="js/models.js"></script>
     <script src="js/datalayer.js"></script>
     <script src="js/viewmodels.js"></script>
@@ -26,9 +28,10 @@
 </head>
 <body>
     <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home/home.html'}"></div>
-    <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
-    </div> -->
+    <div id="page-loading">
+        <progress class="win-ring win-large" />
+    </div>
+
     <div id="appbar-id" data-win-control="WinJS.UI.AppBar" data-win-options="">
         <button
             data-win-control="WinJS.UI.AppBarCommand"
@@ -57,5 +60,7 @@
     <div id="logout-flyout" data-win-control="WinJS.UI.Flyout">
         <label id="logout-status-msg"></label>
     </div>
+
+
 </body>
 </html>

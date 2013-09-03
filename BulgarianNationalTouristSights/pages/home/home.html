@@ -24,8 +24,7 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-
-            <div id="allPlaces-template" data-win-control="WinJS.Binding.Template">
+            <div id="allPlaces-template" data-win-control="WinJS.Binding.Template" style="width: 90%;">
                 <div class="place-tile">
                     <div data-win-bind="className: visited">
                         <h3 data-win-bind="innerText: name"></h3>
@@ -36,17 +35,19 @@
                     </div>
                 </div>
             </div>
+
             <div id="holder">
-            <div data-win-control="WinJS.UI.ListView"
-                data-win-options="{
+                <div data-win-control="WinJS.UI.ListView"
+                    data-win-options="{
                     itemDataSource: BulgarianNationalTouristSights.ViewModels.allPlaces.dataSource,
                     itemTemplate: select('#allPlaces-template'),
                     groupDataSource:BulgarianNationalTouristSights.ViewModels.allPlaces.groups.dataSource,
                     selectionMode: 'none',
                     oniteminvoked: BulgarianNationalTouristSights.HomeCodeBehind.goToDetailsPage,
-                }">
-            </div>
+                }" style="width: 1160px; left: 0px; top: 0px;">
                 </div>
+            </div>
+
         </section>
     </div>
 </body>

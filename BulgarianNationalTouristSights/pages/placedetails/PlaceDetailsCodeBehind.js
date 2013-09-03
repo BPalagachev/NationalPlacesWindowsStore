@@ -20,10 +20,16 @@
 
         }, function (error) {
             if (error.responseText) {
-                statusDisplay.innerText = error.responseText;
+                var errorMsg = JSON.parse(error.responseText).Message;
+                var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
+                statusDisplay.innerHTML = "";
+                statusDisplay.appendChild(errorSpan);
             }
             else {
-                statusDisplay.innerText = "You cannot be localized right now. Please try again!";
+                var errorSpan = BulgarianNationalTouristSights
+                    .DomGenerator.getErrorContainer("You cannot be localized right now. Please try again!");
+                statusDisplay.innerHTML = "";
+                statusDisplay.appendChild(errorSpan);
             }
         });
     }
@@ -35,11 +41,16 @@
         var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
         var placeId = visitedPlaceInfo.value;
         return BulgarianNationalTouristSights.ViewModels.visitPlace().then(function () {
-            statusDisplay.innerText = "Place marked as visited";
+            var msgSpan = BulgarianNationalTouristSights
+                .DomGenerator.getStatusOkContainer("Place marked as visited");
+            statusDisplay.innerHTML = "";
+            statusDisplay.appendChild(msgSpan);
         }).then(function(){
         }, function (error) {
-            var statusDisplay = document.getElementById("addcomments-status-msg");
-            statusDisplay.innerText = "You cannot be localized right now. Please try again!";
+            var errorSpan = BulgarianNationalTouristSights
+                    .DomGenerator.getErrorContainer("You cannot be localized right now. Please try again!");
+            statusDisplay.innerHTML = "";
+            statusDisplay.appendChild(errorSpan);
         });
     }
 

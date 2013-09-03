@@ -56,6 +56,9 @@
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\DefaultCodeBehind.js">
       <PackagePath>js\DefaultCodeBehind.js</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\domgenerator.js">
+      <PackagePath>js\domgenerator.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\models.js">
       <PackagePath>js\models.js</PackagePath>
     </AppxPackagedFile>

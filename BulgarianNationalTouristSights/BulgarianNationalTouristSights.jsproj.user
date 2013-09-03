@@ -4,6 +4,6 @@
     <ReferenceCachePath>C:\Users\Boyan\AppData\Local\Temp\BulgarianNationalTouristSights_refcache</ReferenceCachePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebuggerFlavor>AppHostSimulatorDebugger</DebuggerFlavor>
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

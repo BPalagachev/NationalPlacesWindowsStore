@@ -63,6 +63,7 @@
     <Content Include="js\datalayer.js" />
     <Content Include="js\default.js" />
     <Content Include="js\DefaultCodeBehind.js" />
+    <Content Include="js\domgenerator.js" />
     <Content Include="js\models.js" />
     <Content Include="js\NationalPlacesApi\NationalPlacesClient.js" />
     <Content Include="js\navigator.js" />

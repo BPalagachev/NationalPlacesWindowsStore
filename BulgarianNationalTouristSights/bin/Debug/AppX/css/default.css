@@ -2,6 +2,15 @@
     background-color: #383838;
 }
 
+.ok-status {
+    color: green;
+}
+
+.error-status {
+    color: red;
+}
+
+
 .win-listview {
     overflow: hidden;
     height: 85%;

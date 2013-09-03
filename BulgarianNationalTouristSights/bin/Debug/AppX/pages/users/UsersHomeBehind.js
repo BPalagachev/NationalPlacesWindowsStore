@@ -13,13 +13,18 @@
 
                 }, function (error) {
                     var errorMessage = document.getElementById("user-error-messages");
-                    errorMessage.innerHTML = error.responseText;
+                    var errorMsg = JSON.parse(error.responseText).Message;
+                    var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
+                    errorMessage.innerHTML = "";
+                    errorMessage.appendChild(errorSpan);
                 })
 
         }
         else {
             var errorMessage = document.getElementById("user-error-messages");
-            errorMessage.innerHTML = "Password mismatch";
+            var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer("Password mismatch");
+            errorMessage.innerHTML = "";
+            errorMessage.appendChild(errorSpan);
         }
 
     }
@@ -35,7 +40,10 @@
 
            }, function (error) {
                var errorMessage = document.getElementById("user-error-messages");
-               errorMessage.innerHTML = error.responseText;
+               var errorMsg = JSON.parse(error.responseText).Message;
+               var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
+               errorMessage.innerHTML = "";
+               errorMessage.appendChild(errorSpan);
            })
     }
 

@@ -33,7 +33,7 @@
                 logoutstatus.innerText = "Logout Successfully!";
                 flyout.show(btnLogOut);
                 WinJS.Navigation.navigate("/pages/home/home.html", {});
-            }).then(function(){
+            }).then(function () {
                 BulgarianNationalTouristSights.ViewModels.unmarkVIsitedPlaces();
             }).then(function () { }, function (error) {
                 logoutstatus.innerText = "Please try later!";
@@ -42,9 +42,13 @@
         });
     }
 
+    var markPageLoaded = function () {
+        var progress = document.getElementById("page-loading");
+        progress.style.display = "none";
+    }
 
-WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "DefaultCodeBehind", {
-    //goToDetailsPage: goToDetailsPage,
-    attachUserManageEvent: attachUserManageEvent
-});
+    WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "DefaultCodeBehind", {
+        attachUserManageEvent: attachUserManageEvent,
+        markPageLoaded: markPageLoaded
+    });
 }())

@@ -13,8 +13,8 @@
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function () {
-                // BulgarianNationalTouristSights.ViewModels.unmarkVIsitedPlaces()
-            });
+                BulgarianNationalTouristSights.DefaultCodeBehind.markPageLoaded();
+            }).done();
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
             } else {
