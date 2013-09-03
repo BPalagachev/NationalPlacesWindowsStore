@@ -168,6 +168,24 @@
         return applicationSessionState[key];
     }
 
+    var searchQuery = { queryText: "" };
+
+    var filteredPlaces = allPlaces.createFiltered(function (item) {
+        var isSelected = JSON.stringify(item).indexOf(searchQuery.queryText) > -1;
+        return isSelected;
+    });
+
+    var submitSearchText = function (text) {
+        searchQuery.queryText = text;
+        allPlaces.notifyReload();
+    };
+
+    var navigateToDetails = function (placeInfo) {
+        WinJS.Navigation.navigate("/pages/placedetails/placedetails.html", {
+            invokedPlace: placeInfo
+        });
+    }
+
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
@@ -189,7 +207,10 @@
         applicationSessionState: applicationSessionState,
         saveKeyToSessionState: saveKeyToSessionState,
         loadKeyToSessionState: loadKeyToSessionState,
-        getVisitedPlaced: getVisitedPlaced
+        getVisitedPlaced: getVisitedPlaced,
+        searchPlaces: filteredPlaces,
+        submitSearchText: submitSearchText,
+        navigateToDetails: navigateToDetails
     })
 
 }())

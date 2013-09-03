@@ -114,6 +114,9 @@
 
     var savePageSession = function () {
         var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+        if (!visitedPlaceInfo.value) {
+            return;
+        }
         var placeId = visitedPlaceInfo.value;
         var commentsTextArea = document.getElementById("comments-textarea");
         if (commentsTextArea) {
@@ -136,9 +139,28 @@
             var commentsTextArea = document.getElementById("comments-textarea");
             commentsTextArea.value = sessionData.text;
         }
-
-
     }
+
+    var saveButton = document.getElementById("saveButton");
+    saveButton.addEventListener("click", function () {
+        var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+        var placeId = visitedPlaceInfo.value;
+        return BulgarianNationalTouristSights.ViewModels.loadPlaceDetails(placeId).then(function () {
+            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            savePicker.suggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.documentsLibrary;
+            savePicker.defaultFileExtension = ".txt"
+            savePicker.fileTypeChoices.insert("Text Document", [".txt"])
+            savePicker.suggestedFileName = "My Sight";
+
+            savePicker.pickSaveFileAsync().then(function (file) {
+                BulgarianNationalTouristSights.ViewModels.loadPlaceDetails(placeId).then(function (data) {
+                    var text = "Place name: " + data.name + "\n";
+                    text += "Additional Information: " + data.information + "\n";
+                    Windows.Storage.FileIO.writeTextAsync(file, text);
+                });
+            });
+        });
+    });
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "PlaceDetailsCodeBehind", {
         showContextualCommands: showPlacesCommands,

@@ -74,11 +74,14 @@
     <Content Include="pages\home\home.js" />
     <Content Include="default.html" />
     <Content Include="pages\home\HomeCodeBehind.js" />
+    <Content Include="pages\home\pdfPrinter.js" />
     <Content Include="pages\placedetails\addcomment.html" />
     <Content Include="pages\placedetails\placedetails.css" />
     <Content Include="pages\placedetails\placedetails.html" />
     <Content Include="pages\placedetails\placedetails.js" />
     <Content Include="pages\placedetails\PlaceDetailsCodeBehind.js" />
+    <Content Include="pages\search\searchresults.html" />
+    <Content Include="pages\search\searchresults.js" />
     <Content Include="pages\users\userlogin.html" />
     <Content Include="pages\users\userregister.html" />
     <Content Include="pages\users\UsersHomeBehind.js" />

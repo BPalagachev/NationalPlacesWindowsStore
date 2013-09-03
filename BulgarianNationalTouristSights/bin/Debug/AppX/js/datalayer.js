@@ -29,7 +29,6 @@
                  return Windows.Storage.FileIO.readTextAsync(file);
              })
             .then(function (text) {
-                aasdasd
                 allPlaces = JSON.parse(text);
                 return allPlaces;
             })
