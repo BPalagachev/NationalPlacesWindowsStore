@@ -14,19 +14,39 @@
 .win-listview {
     overflow: hidden;
     height: 85%;
-    
 }
 
-.win-listview .win-item {
-    margin: 5px;
-    overflow: hidden;
-    position: absolute;
-}
+    .win-listview .win-item {
+        margin: 5px;
+        overflow: hidden;
+        position: absolute;
+    }
 
 .win-container.win-selected .win-selectionborder {
     border-width: 4px;
     border-style: solid;
 }
+
+.loading {
+    text-align: center;
+    margin: auto auto;
+    width: 80%;
+    height: 100%;
+}
+
+    .loading progress {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .loading div {
+        margin: 0 auto;
+    }
+
+#page-loading div {
+    font-size: 2em;
+}
+
 
 
 #contenthost {

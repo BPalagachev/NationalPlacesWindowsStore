@@ -28,8 +28,8 @@
             appBar.hide();
             var flyoutContainer = document.getElementById("logout-flyout");
             var flyout = flyoutContainer.winControl;
+            var logoutstatus = document.getElementById("logout-status-msg");
             BulgarianNationalTouristSights.ViewModels.userLogout().then(function (success) {
-                var logoutstatus = document.getElementById("logout-status-msg");
                 logoutstatus.innerText = "Logout Successfully!";
                 flyout.show(btnLogOut);
                 WinJS.Navigation.navigate("/pages/home/home.html", {});
@@ -44,7 +44,10 @@
 
     var markPageLoaded = function () {
         var progress = document.getElementById("page-loading");
+        var contentHost = document.getElementById("contenthost");
         progress.style.display = "none";
+        contentHost.style.display = "block";
+
     }
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "DefaultCodeBehind", {

@@ -23,7 +23,7 @@
             <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
             <br />
             <span>Information:</span>
-            <div data-win-bind="innerText: information" style="width: 1120px;">asdsadasdasdassadsdaasdasdsadsadsadasdsasdsadsadsadsd</div>
+            <div data-win-bind="innerText: information" style="width: 1120px;"></div>
             <a data-win-bind="href: url">More information</a>
             <input type="hidden" data-win-bind="value: placeIndentifier" />
         </div>
@@ -31,7 +31,7 @@
 
     <div id="comments-template" data-win-control="WinJS.Binding.Template" style="position: relative;">
         <div class="place-comments" style="display: block;">
-            <span data-win-bind="innerText: authorname" style="font-size: 2em;"></span><span style="font-size: 2em;"> says:</span><br />
+            <span data-win-bind="innerText: authorname" style="font-size: 2em;"></span><span style="font-size: 2em;">says:</span><br />
             <div data-win-bind="innerText: content"></div>
         </div>
     </div>
@@ -45,11 +45,20 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <div id="place-datails"></div>
-            
+            <div id="place-datails">
+                <div id="loading-details" class="loading">
+                    <progress class="win-large"></progress>
+                    <div>Loading... Please wait</div>
+                </div>
+            </div>
+
             <div id="add-comment-container"></div>
             <div id="addcomments-status-msg"></div>
             <h4 style="height: 35px; font-size: 1.5em; position: relative; left: 0px; top: 0.07px; margin-bottom: 10px;">Comments</h4>
+            <div id="loading-comments" class="loading">
+                <progress class="win-large"></progress>
+                <div>Loading... Please wait</div>
+            </div>
             <div id="coments-container" style="position: relative; width: 1080px; height: 310px; left: 80px; top: 10.07px; margin: 0px;"></div>
         </section>
     </div>

@@ -85,6 +85,8 @@
                 apiClient.places.getComments(currentUser.sessionKey, placeId)// currentUser.sessionKey
                 .then(function (comments) {
                     success(comments);
+                }, function (errMsg) {
+                    error(errMsg);
                 })
             }
             else {

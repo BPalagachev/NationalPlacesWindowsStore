@@ -29,7 +29,7 @@
     var loadAllPlaces = function () {
         return data.allPlaces().then(function (places) {
             places.forEach(function (place) {
-                allPlaces.push(new models.PlaceModel(place));
+                allPlaces.push(WinJS.Binding.as(new models.PlaceModel(place)));
             })
         }).then(function () {
             var userInfo = apiClient.users.isUserLoggedIn();

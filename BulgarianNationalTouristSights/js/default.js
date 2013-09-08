@@ -12,9 +12,12 @@
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
-            BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function () {
-                BulgarianNationalTouristSights.DefaultCodeBehind.markPageLoaded();
-            }).done();
+
+            LoadApp().then(function (success) {
+            }, function (arror) {
+                LoadApp();
+            });
+
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
             } else {
@@ -48,4 +51,10 @@
     };
 
     app.start();
+
+    function LoadApp() {
+        return BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function () {
+            BulgarianNationalTouristSights.DefaultCodeBehind.markPageLoaded();
+        })
+    }
 })();

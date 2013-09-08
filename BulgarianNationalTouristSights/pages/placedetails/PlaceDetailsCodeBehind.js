@@ -111,7 +111,6 @@
 
     }
 
-
     var savePageSession = function () {
         var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
         if (!visitedPlaceInfo.value) {
@@ -154,9 +153,14 @@
 
             savePicker.pickSaveFileAsync().then(function (file) {
                 BulgarianNationalTouristSights.ViewModels.loadPlaceDetails(placeId).then(function (data) {
-                    var text = "Place name: " + data.name + "\n";
-                    text += "Additional Information: " + data.information + "\n";
-                    Windows.Storage.FileIO.writeTextAsync(file, text);
+                    var text = "Place name: " + data.name + "\r\n";
+                    text += "Additional Information: " + data.information + "\r\n";
+                    text += "Latitude: " + data.latitude + "\r\n";
+                    text += "Longitude: " + data.longitude + "\r\n";
+                    text += "URL: " + data.url + "\r\n";
+                    if (file) {
+                        Windows.Storage.FileIO.writeTextAsync(file, text);
+                    }
                 });
             });
         });
@@ -175,6 +179,6 @@
         detachVisitPlace: detachVisitPlace,
         savePageSession: savePageSession,
         loadPageSession: loadPageSession,
-        openCommentsForm: openCommentsForm
+        openCommentsForm: openCommentsForm,
     });
 }())

@@ -19,7 +19,6 @@
         init: function (element, options) {
             details = BulgarianNationalTouristSights.ViewModels.loadPlaceDetails(options.invokedPlace.placeIndentifier);
             comments = BulgarianNationalTouristSights.ViewModels.loadComments(options.invokedPlace.placeIndentifier);
-            
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.currentPlaceId = options.invokedPlace.placeIndentifier;
         },
         ready: function (element, options) {
@@ -29,23 +28,34 @@
 
                 details.then(function (data) {
                     placeDetailsTemplate.render(data, placeDetailsContainer);
-                }).then(function(){
+                }).then(function () {
                     var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
                     var placeId = visitedPlaceInfo.value;
                     var sessionData = BulgarianNationalTouristSights.ViewModels.loadKeyToSessionState("comment" + placeId);
                     if (sessionData && sessionData.text != "") {
                         BulgarianNationalTouristSights.PlaceDetailsCodeBehind.openCommentsForm();
                     }
+                }).then(function(){
+                    var laodingDetails = document.getElementById("loading-details");
+                    laodingDetails.style.display = "none";
+                }, function () {
+                    var laodingDetails = document.getElementById("loading-details");
+                    laodingDetails.innerHTML = "Data unavailable. Please try again later!";
                 });
 
                 comments.then(function (data) {
                     BulgarianNationalTouristSights.PlaceDetailsCodeBehind.renderComments(data);
-                    BulgarianNationalTouristSights.PlaceDetailsCodeBehind.showContextualCommands();
-                    BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachShowCommentsForm();
-                    BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachVisitPlace();
-                }, function (error) {
-                    var bp = 3;
+                }).then(function () {
+                    var laodingDetails = document.getElementById("loading-comments");
+                    laodingDetails.style.display = "none";
+                }, function () {
+                    var laodingDetails = document.getElementById("loading-comments");
+                    laodingDetails.innerHTML = "Data unavailable. Please try again later!";
                 });
+
+                BulgarianNationalTouristSights.PlaceDetailsCodeBehind.showContextualCommands();
+                BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachShowCommentsForm();
+                BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachVisitPlace();
             });
         },
 

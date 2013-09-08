@@ -16,6 +16,18 @@
     <script src="pdfPrinter.js"></script>
 </head>
 <body>
+    <div id="allPlaces-template" data-win-control="WinJS.Binding.Template" style="width: 90%;">
+        <div class="place-tile">
+            <div data-win-bind="className: visited">
+                <h3 data-win-bind="innerText: name"></h3>
+                <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
+                <br />
+                <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
+                <br />
+            </div>
+        </div>
+    </div>
+
     <!-- The content that will be loaded and displayed. -->
     <div class="fragment homepage">
         <header aria-label="Header content" role="banner">
@@ -25,30 +37,16 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <div id="allPlaces-template" data-win-control="WinJS.Binding.Template" style="width: 90%;">
-                <div class="place-tile">
-                    <div data-win-bind="className: visited">
-                        <h3 data-win-bind="innerText: name"></h3>
-                        <span>Latitude: </span><span data-win-bind="innerText: latitude"></span>
-                        <br />
-                        <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
-                        <br />
-                    </div>
-                </div>
-            </div>
-
-            <div id="holder">
-                <div data-win-control="WinJS.UI.ListView"
-                    data-win-options="{
+            <div id="list-view-maincontent" data-win-control="WinJS.UI.ListView"
+                data-win-options="{
                     itemDataSource: BulgarianNationalTouristSights.ViewModels.allPlaces.dataSource,
                     itemTemplate: select('#allPlaces-template'),
                     groupDataSource:BulgarianNationalTouristSights.ViewModels.allPlaces.groups.dataSource,
                     selectionMode: 'none',
                     oniteminvoked: BulgarianNationalTouristSights.HomeCodeBehind.goToDetailsPage,
-                }" style="width: 1160px; left: 0px; top: 0px;">
-                </div>
+                }"
+                style="width: 1160px; left: 0px; top: 0px;">
             </div>
-
         </section>
     </div>
 </body>

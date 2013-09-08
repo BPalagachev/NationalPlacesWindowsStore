@@ -16,13 +16,13 @@
     <AppXManifest Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-09-03T10:13:46.470</Modified>
+      <Modified>2013-09-04T19:50:18.492</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\css\default.css">
       <PackagePath>css\default.css</PackagePath>
-      <Modified>2013-09-03T00:50:42.888</Modified>
+      <Modified>2013-09-08T13:55:58.821</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.css">
       <PackagePath>pages\home\home.css</PackagePath>
@@ -34,7 +34,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\usersl.css">
       <PackagePath>pages\users\usersl.css</PackagePath>
-      <Modified>2013-09-02T21:21:00.716</Modified>
+      <Modified>2013-09-08T14:17:16.372</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\images\logo.png">
       <PackagePath>images\logo.png</PackagePath>
@@ -66,15 +66,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\datalayer.js">
       <PackagePath>js\datalayer.js</PackagePath>
-      <Modified>2013-09-03T10:26:21.952</Modified>
+      <Modified>2013-09-08T13:17:59.173</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\default.js">
       <PackagePath>js\default.js</PackagePath>
-      <Modified>2013-09-03T08:57:47.920</Modified>
+      <Modified>2013-09-08T11:50:08.376</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\DefaultCodeBehind.js">
       <PackagePath>js\DefaultCodeBehind.js</PackagePath>
-      <Modified>2013-09-03T01:18:59.628</Modified>
+      <Modified>2013-09-08T11:32:00.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\domgenerator.js">
       <PackagePath>js\domgenerator.js</PackagePath>
@@ -86,7 +86,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\NationalPlacesApi\NationalPlacesClient.js">
       <PackagePath>js\NationalPlacesApi\NationalPlacesClient.js</PackagePath>
-      <Modified>2013-09-02T23:50:52.092</Modified>
+      <Modified>2013-09-08T13:14:52.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\navigator.js">
       <PackagePath>js\navigator.js</PackagePath>
@@ -98,15 +98,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\js\viewmodels.js">
       <PackagePath>js\viewmodels.js</PackagePath>
-      <Modified>2013-09-03T09:18:16.593</Modified>
+      <Modified>2013-09-08T12:29:25.201</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.js">
       <PackagePath>pages\home\home.js</PackagePath>
-      <Modified>2013-09-03T01:12:32.355</Modified>
+      <Modified>2013-09-08T12:20:58.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\HomeCodeBehind.js">
       <PackagePath>pages\home\HomeCodeBehind.js</PackagePath>
-      <Modified>2013-09-03T01:13:09.597</Modified>
+      <Modified>2013-09-08T12:20:58.903</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\pdfPrinter.js">
       <PackagePath>pages\home\pdfPrinter.js</PackagePath>
@@ -114,11 +114,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\placedetails.js">
       <PackagePath>pages\placedetails\placedetails.js</PackagePath>
-      <Modified>2013-09-02T17:47:19.106</Modified>
+      <Modified>2013-09-08T14:23:31.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\PlaceDetailsCodeBehind.js">
       <PackagePath>pages\placedetails\PlaceDetailsCodeBehind.js</PackagePath>
-      <Modified>2013-09-03T10:00:15.146</Modified>
+      <Modified>2013-09-08T14:30:10.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\search\searchresults.js">
       <PackagePath>pages\search\searchresults.js</PackagePath>
@@ -126,7 +126,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\UsersHomeBehind.js">
       <PackagePath>pages\users\UsersHomeBehind.js</PackagePath>
-      <Modified>2013-09-03T00:40:01.245</Modified>
+      <Modified>2013-09-08T15:14:49.472</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\usersl.js">
       <PackagePath>pages\users\usersl.js</PackagePath>
@@ -134,11 +134,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\home\home.html">
       <PackagePath>pages\home\home.html</PackagePath>
-      <Modified>2013-09-03T09:23:55.714</Modified>
+      <Modified>2013-09-08T12:20:58.909</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\default.html">
       <PackagePath>default.html</PackagePath>
-      <Modified>2013-09-03T09:00:01.627</Modified>
+      <Modified>2013-09-08T13:55:18.280</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\addcomment.html">
       <PackagePath>pages\placedetails\addcomment.html</PackagePath>
@@ -146,7 +146,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\placedetails\placedetails.html">
       <PackagePath>pages\placedetails\placedetails.html</PackagePath>
-      <Modified>2013-09-03T10:01:34.643</Modified>
+      <Modified>2013-09-08T13:56:31.432</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\search\searchresults.html">
       <PackagePath>pages\search\searchresults.html</PackagePath>
@@ -154,11 +154,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\userlogin.html">
       <PackagePath>pages\users\userlogin.html</PackagePath>
-      <Modified>2013-09-03T08:00:15.774</Modified>
+      <Modified>2013-09-08T14:10:28.840</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\userregister.html">
       <PackagePath>pages\users\userregister.html</PackagePath>
-      <Modified>2013-09-03T08:10:48.165</Modified>
+      <Modified>2013-09-08T14:16:09.978</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\pages\users\usersl.html">
       <PackagePath>pages\users\usersl.html</PackagePath>

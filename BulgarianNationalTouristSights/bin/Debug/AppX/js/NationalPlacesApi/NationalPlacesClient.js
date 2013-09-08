@@ -206,8 +206,6 @@
 
             return httpRequester.getJson(url, headers).then(function (data) {
                 return JSON.parse(data.responseText);
-            }, function (error) {
-                var bp = 10;
             });
         },
         _cipherCoordinates: function (latitude, longitude, cipher) {
