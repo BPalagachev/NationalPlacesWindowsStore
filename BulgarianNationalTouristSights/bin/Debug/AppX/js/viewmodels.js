@@ -4,8 +4,8 @@
     var roamingSettings = Windows.Storage.ApplicationData.current.roamingSettings;
     var data = BulgarianNationalTouristSights.Data;
     var models = BulgarianNationalTouristSights.Models;
-    var tempStorage = Windows.Storage.ApplicationData.current.temporaryFolder;
     var gpsDevice = new Windows.Devices.Geolocation.Geolocator();
+    var dataTransferManager;
 
     var apiClient = BulgarianNationalTouristSights.apiClient;
 
@@ -140,10 +140,43 @@
                 for (var i = 0; i < visitedPlacesArr.length; i++) {
                     markPlaceAsVisited(visitedPlacesArr[i]);
                 }
-            }, function (error) {
-                var er = 5;
             })
         }
+    }
+
+    var getTextToShare = function (currentPlace) {
+        var textToShare = "";
+        var userInfo = apiClient.users.isUserLoggedIn();
+        var promise = new WinJS.Promise(function(success, error){
+            if (userInfo) {
+                apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
+                    var isPlaceVisited = false;
+                    for (var i = 0; i < visitedPlacesArr.length; i++) {
+                        if (visitedPlacesArr[i] == currentPlace.placeId) {
+                            isPlaceVisited = true;
+                            break;
+                        }
+                    }
+
+                    if (isPlaceVisited) {
+                        textToShare += "\"National Places Of Bulgaria App\": " + userInfo.nickName + " посети " + currentPlace.name;
+                    } else {
+                        textToShare += "\"National Places Of Bulgaria App:\" " + userInfo.nickName + " възнамерява да посети " + currentPlace.name;
+                    }
+
+                    success(textToShare);
+                }, function (errorData) {
+                    error(errorData);
+                })
+            } else {
+                var errorResponse = {
+                    responseText: "You need to be logged in to share this information"
+                };
+                error(errorResponse);
+            }
+        })
+
+        return promise;        
     }
 
     var getLocation = function () {
@@ -180,13 +213,6 @@
         allPlaces.notifyReload();
     };
 
-    var navigateToDetails = function (placeInfo) {
-        WinJS.Navigation.navigate("/pages/placedetails/placedetails.html", {
-            invokedPlace: placeInfo
-        });
-    }
-
-
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "ViewModels", {
         loadAllPlaces: loadAllPlaces,
         allPlaces: allPlaces,
@@ -210,7 +236,9 @@
         getVisitedPlaced: getVisitedPlaced,
         searchPlaces: filteredPlaces,
         submitSearchText: submitSearchText,
-        navigateToDetails: navigateToDetails
+        searchQuery: searchQuery,
+        getTextToShare: getTextToShare,
+        dataTransferManager: dataTransferManager
     })
 
 }())

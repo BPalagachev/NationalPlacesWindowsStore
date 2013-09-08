@@ -1,6 +1,6 @@
 ﻿#coments-container {
     padding-top: 15px;
-    width: 85%;
+    width: 100%;
     overflow:auto;
     height: 300px;
 }

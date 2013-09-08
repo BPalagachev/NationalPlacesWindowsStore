@@ -7,12 +7,6 @@
         });
     }
 
-    var updateVistView = function () {
-        var listViewContainer = document.getElementById("list-view-maincontent");
-        var listViewControl = listViewContainer.winControl;
-
-    }
-
     WinJS.Utilities.markSupportedForProcessing(goToDetailsPage);
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "HomeCodeBehind", {

@@ -36,7 +36,7 @@
                 <span class="pagetitle">Bulgarian National Tourist Sights!</span>
             </h1>
         </header>
-        <section aria-label="Main content" role="main">
+        <section aria-label="Main content" role="main" style="margin-top: 0px; margin-bottom: 0px;">
             <div id="list-view-maincontent" data-win-control="WinJS.UI.ListView"
                 data-win-options="{
                     itemDataSource: BulgarianNationalTouristSights.ViewModels.allPlaces.dataSource,
@@ -44,8 +44,8 @@
                     groupDataSource:BulgarianNationalTouristSights.ViewModels.allPlaces.groups.dataSource,
                     selectionMode: 'none',
                     oniteminvoked: BulgarianNationalTouristSights.HomeCodeBehind.goToDetailsPage,
-                }"
-                style="width: 1160px; left: 0px; top: 0px;">
+                    layout : {type: WinJS.UI.GridLayout},
+                }">
             </div>
         </section>
     </div>

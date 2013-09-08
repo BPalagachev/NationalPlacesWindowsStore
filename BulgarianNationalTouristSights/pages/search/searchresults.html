@@ -13,12 +13,13 @@
     <link href="/css/default.css" rel="stylesheet" />
     <link href="/pages/searchresults/searchresults.css" rel="stylesheet" />
     <script src="/js/data.js"></script>
+    <link href="searchresults.css" rel="stylesheet" />
 </head>
 <body>
     <!-- This template is used to display each item in the ListView declared
          below. -->
     <div id="search-item-template" class="itemtemplate" data-win-control="WinJS.Binding.Template">
-        <div >
+        <div style="height: 60px; width: 230px;" >
             <div data-win-bind="innerText: name"></div>
         </div>
     </div>
@@ -28,16 +29,18 @@
         <header aria-label="Header content" role="banner">
             <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
             <div class="titlearea">
-                <h1 class="pagetitle win-type-ellipsis">Search Results for: <span data-win-bind="innerText: searchQuery.queryText"></span></h1>
+                <h1 class="pagetitle win-type-ellipsis">Search Results for:
+                     <span data-win-bind="innerText: searchQuery.queryText"></span></h1>
                 <h2 class="pagesubtitle win-type-ellipsis"></h2>
             </div>
         </header>
-        <section aria-label="Main content" role="main">
+        <section aria-label="Main content" role="main" style="margin: 0px 81px 0px 0px;">
             <p>Places found:</p>
             <div data-win-control="WinJS.UI.ListView"
                 data-win-options="{
                     itemTemplate: select('#search-item-template'),
-                    itemDataSource: BulgarianNationalTouristSights.ViewModels.searchPlaces.dataSource
+                    itemDataSource: BulgarianNationalTouristSights.ViewModels.searchPlaces.dataSource,
+                    oniteminvoked: BulgarianNationalTouristSights.HomeCodeBehind.goToDetailsPage,
                 }">
             </div>
         </section>

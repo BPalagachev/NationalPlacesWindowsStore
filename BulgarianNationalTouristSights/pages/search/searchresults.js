@@ -8,18 +8,16 @@
 
 (function () {
     "use strict";
-
     WinJS.Binding.optimizeBindingReferences = true;
 
     var appModel = Windows.ApplicationModel;
-    var appViewState = Windows.UI.ViewManagement.ApplicationViewState;
     var nav = WinJS.Navigation;
     var ui = WinJS.UI;
-    var utils = WinJS.Utilities;
     var searchPageURI = "/pages/search/searchresults.html";
 
     ui.Pages.define(searchPageURI, {
         ready: function (element, options) {
+            BulgarianNationalTouristSights.ViewModels.searchQuery.queryText = options.queryText;
             WinJS.Binding.processAll(element, BulgarianNationalTouristSights.ViewModels);
             BulgarianNationalTouristSights.ViewModels.submitSearchText(options.queryText);
         }
@@ -31,7 +29,6 @@
                 if (!nav.location) {
                     nav.history.current = { location: Application.navigator.home, initialState: {} };
                 }
-
                 return nav.navigate(searchPageURI, { queryText: args.detail.name });
             }));
         }

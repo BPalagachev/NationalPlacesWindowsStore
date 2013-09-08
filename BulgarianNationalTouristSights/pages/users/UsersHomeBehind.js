@@ -1,4 +1,6 @@
 ﻿(function () {
+    var btnLogOut = document.getElementById("navigate-user-logout");
+
     var register = function () {
         var progress = document.getElementById("register-loading");
         progress.style.display = "block";
@@ -13,7 +15,11 @@
                 .ViewModels.registerUser(registerUserName, registerNickName, registerPassword)
                 .then(function (data) {
                     WinJS.Navigation.navigate("/pages/home/home.html", {});
-
+                    var flyoutContainer = document.getElementById("logout-flyout");
+                    var flyout = flyoutContainer.winControl;
+                    var logoutstatus = document.getElementById("logout-status-msg");
+                    logoutstatus.innerText = "Logged In Successfully!";
+                    flyout.show(btnLogOut);
                 }, function (error) {
                     progress.style.display = "none";
                     var errorMessage = document.getElementById("user-error-messages");
@@ -52,6 +58,11 @@
            .then(function (data) {
                progress.style.display = "none";
                WinJS.Navigation.navigate("/pages/home/home.html", {});
+               var flyoutContainer = document.getElementById("logout-flyout");
+               var flyout = flyoutContainer.winControl;
+               var logoutstatus = document.getElementById("logout-status-msg");
+               logoutstatus.innerText = "Logged In Successfully!";
+               flyout.show(btnLogOut);
 
            }, function (error) {
                progress.style.display = "none";

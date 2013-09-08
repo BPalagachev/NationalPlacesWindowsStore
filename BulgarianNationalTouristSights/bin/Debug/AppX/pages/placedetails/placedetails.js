@@ -9,7 +9,7 @@
 // http://go.microsoft.com/fwlink/?LinkId=232511
 (function () {
     "use strict";
-
+   
     var details;
     var comments;
 
@@ -48,15 +48,22 @@
                 }).then(function () {
                     var laodingDetails = document.getElementById("loading-comments");
                     laodingDetails.style.display = "none";
-                }, function () {
+                }, function (error) {
                     var laodingDetails = document.getElementById("loading-comments");
-                    laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                    if (error && error.responseText) {
+                        laodingDetails.innerHTML = error.responseText;
+                    }
+                    else {
+                        laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                    }
                 });
 
                 BulgarianNationalTouristSights.PlaceDetailsCodeBehind.showContextualCommands();
                 BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachShowCommentsForm();
                 BulgarianNationalTouristSights.PlaceDetailsCodeBehind.attachVisitPlace();
             });
+            var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+            dataTransferManager.addEventListener("datarequested", BulgarianNationalTouristSights.PlaceDetailsCodeBehind.shareTextFileHandler);
         },
 
         unload: function () {
@@ -64,13 +71,13 @@
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachShowCommentsForm();
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.detachVisitPlace();
             BulgarianNationalTouristSights.PlaceDetailsCodeBehind.savePageSession();
+
+            var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+            dataTransferManager.removeEventListener("datarequested", BulgarianNationalTouristSights.PlaceDetailsCodeBehind.shareTextFileHandler);
             // TODO: Respond to navigations away from this page.
         },
 
         updateLayout: function (element, viewState, lastViewState) {
-            /// <param name="element" domElement="true" />
-
-            // TODO: Respond to changes in viewState.
         }
     });
 })();

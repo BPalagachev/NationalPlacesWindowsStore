@@ -25,8 +25,12 @@ pages\placedetails\placedetails.css
 pages\placedetails\placedetails.html
 pages\placedetails\placedetails.js
 pages\placedetails\PlaceDetailsCodeBehind.js
+pages\search\searchresults.css
 pages\search\searchresults.html
 pages\search\searchresults.js
+pages\snapped\snapped.css
+pages\snapped\snapped.html
+pages\snapped\snapped.js
 pages\users\userlogin.html
 pages\users\userregister.html
 pages\users\UsersHomeBehind.js

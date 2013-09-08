@@ -80,8 +80,12 @@
     <Content Include="pages\placedetails\placedetails.html" />
     <Content Include="pages\placedetails\placedetails.js" />
     <Content Include="pages\placedetails\PlaceDetailsCodeBehind.js" />
+    <Content Include="pages\search\searchresults.css" />
     <Content Include="pages\search\searchresults.html" />
     <Content Include="pages\search\searchresults.js" />
+    <Content Include="pages\snapped\snapped.css" />
+    <Content Include="pages\snapped\snapped.html" />
+    <Content Include="pages\snapped\snapped.js" />
     <Content Include="pages\users\userlogin.html" />
     <Content Include="pages\users\userregister.html" />
     <Content Include="pages\users\UsersHomeBehind.js" />

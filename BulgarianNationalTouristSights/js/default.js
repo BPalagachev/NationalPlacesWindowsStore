@@ -8,7 +8,6 @@
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
     var nav = WinJS.Navigation;
-    var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
@@ -17,7 +16,6 @@
             }, function (arror) {
                 LoadApp();
             });
-
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
             } else {
@@ -51,6 +49,27 @@
     };
 
     app.start();
+
+    window.addEventListener("resize", updateView);
+
+    var previousSnapped = false;
+    function updateView() {
+        var myViewState = Windows.UI.ViewManagement.ApplicationView.value;
+        var viewStates = Windows.UI.ViewManagement.ApplicationViewState;
+        switch (myViewState) {
+            case viewStates.snapped:
+                previousSnapped = true;
+                WinJS.Navigation.navigate("/pages/snapped/snapped.html", {});
+                break;
+            default:
+                if (previousSnapped) {
+                    WinJS.Navigation.navigate("/pages/home/home.html", {});
+                }
+
+                previousSnapped = false;
+                break;
+        }
+    }
 
     function LoadApp() {
         return BulgarianNationalTouristSights.ViewModels.loadAllPlaces().then(function () {

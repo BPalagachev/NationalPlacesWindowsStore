@@ -15,15 +15,16 @@
 </head>
 <body>
     <div id="place-datails-template" data-win-control="WinJS.Binding.Template" style="width: 1200px;">
-        <div class="place-details" style="width: 1200px; position: relative; left: 80px; top: 0px;">
-            <h2 data-win-bind="innerText: name"></h2>
+        <div class="place-details" style="width: 100%; position: relative;">
+            <h2 id="place-name" data-win-bind="innerText: name"></h2>
             <span>Latitude: </span>
             <span data-win-bind="innerText: latitude"></span>
             <br />
             <span>Longitude: </span><span data-win-bind="innerText: longitude"></span>
             <br />
-            <span>Information:</span>
-            <div data-win-bind="innerText: information" style="width: 1120px;"></div>
+            <div>Information: 
+                <span data-win-bind="innerText: information"></span>
+            </div>
             <a data-win-bind="href: url">More information</a>
             <input type="hidden" data-win-bind="value: placeIndentifier" />
         </div>
@@ -31,7 +32,7 @@
 
     <div id="comments-template" data-win-control="WinJS.Binding.Template" style="position: relative;">
         <div class="place-comments" style="display: block;">
-            <span data-win-bind="innerText: authorname" style="font-size: 2em;"></span><span style="font-size: 2em;">says:</span><br />
+            <span data-win-bind="innerText: authorname" style="font-size: 2em;"></span><span style="font-size: 2em;"> says:</span><br />
             <div data-win-bind="innerText: content"></div>
         </div>
     </div>
@@ -54,12 +55,12 @@
 
             <div id="add-comment-container"></div>
             <div id="addcomments-status-msg"></div>
-            <h4 style="height: 35px; font-size: 1.5em; position: relative; left: 0px; top: 0.07px; margin-bottom: 10px;">Comments</h4>
+            <h4 style="height: 35px; font-size: 1.5em; position: relative; left: 0px; margin-bottom: 10px;">Comments:</h4>
             <div id="loading-comments" class="loading">
                 <progress class="win-large"></progress>
                 <div>Loading... Please wait</div>
             </div>
-            <div id="coments-container" style="position: relative; width: 1080px; height: 310px; left: 80px; top: 10.07px; margin: 0px;"></div>
+            <div id="coments-container" style="position: relative; height: 310px; top: 10.00px; margin: 0px;"></div>
         </section>
     </div>
 </body>

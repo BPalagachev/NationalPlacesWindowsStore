@@ -113,7 +113,7 @@
 
     var savePageSession = function () {
         var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
-        if (!visitedPlaceInfo.value) {
+        if (!visitedPlaceInfo || !visitedPlaceInfo.value) {
             return;
         }
         var placeId = visitedPlaceInfo.value;
@@ -166,6 +166,36 @@
         });
     });
 
+    var shareTextFileHandler = function (event) {
+        var dataRequest = event.request;
+        dataRequest.data.properties.title = "National Places Of Bulgaria";
+        dataRequest.data.properties.description = "Visited place repost";
+        dataRequest.data.properties.fileTypes.replaceAll([".txt"]);
+        var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
+        var placeId = visitedPlaceInfo.value;
+        var placeName = document.getElementById("place-name").innerText;
+        var placeInfo ={
+            placeId: placeId,
+            name: placeName
+        };
+
+        var deferral = dataRequest.getDeferral();
+
+        BulgarianNationalTouristSights.ViewModels.getTextToShare(placeInfo).then(function(shareText){
+            var localFolder = Windows.Storage.ApplicationData.current.localFolder;
+            localFolder.createFileAsync("National Places Of Bulgaria.txt", Windows.Storage.CreationCollisionOption.replaceExisting).done(function (file) {
+                Windows.Storage.FileIO.writeTextAsync(file, shareText).done(function () {
+                    dataRequest.data.setStorageItems([file]);
+                    deferral.complete();
+                });
+            });
+        }, function (error) {
+            deferral.complete();
+        }).done(null, function (err) {
+            deferral.complete();
+        });
+    }
+
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "PlaceDetailsCodeBehind", {
         showContextualCommands: showPlacesCommands,
         hideContextualCommands: hidePlacesCommands,
@@ -180,5 +210,6 @@
         savePageSession: savePageSession,
         loadPageSession: loadPageSession,
         openCommentsForm: openCommentsForm,
+        shareTextFileHandler: shareTextFileHandler
     });
 }())

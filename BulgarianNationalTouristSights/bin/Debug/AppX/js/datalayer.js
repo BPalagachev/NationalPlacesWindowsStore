@@ -90,7 +90,10 @@
                 })
             }
             else {
-                error("You need to be logged in to view comments")
+                var errorResponse = {
+                    responseText: "You need to be logged in to view comments"
+                };
+                error(errorResponse);
             }
         });
 
