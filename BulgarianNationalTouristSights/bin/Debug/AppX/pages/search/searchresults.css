@@ -1,4 +1,7 @@
-﻿body {
+﻿#search-container .win-viewport {
+    width: 90%;
+    padding-left: 140px;
+    padding-right: -140px;
 }
 
 .itemtemplate {

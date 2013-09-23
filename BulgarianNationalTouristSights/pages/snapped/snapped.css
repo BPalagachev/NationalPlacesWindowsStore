@@ -3,6 +3,10 @@
     margin-right: 120px;
 }
 
+.wrapped {
+    width: 90%;
+}
+
 @media screen and (-ms-view-state: snapped) {
     .snapped section[role=main] {
         margin-left: 20px;

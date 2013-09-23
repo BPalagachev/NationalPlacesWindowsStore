@@ -163,11 +163,14 @@
                 return JSON.parse(data.responseText);
             });
         },
-        visit: function (sessionKey, latitude, longitude, cipher) {
+        visit: function (sessionKey, latitude, longitude, cipher, placeId) {
             headers = { "X-sessionKey": sessionKey };
             var url = this.serviceUrl + "visit";
             var token = this._cipherCoordinates(latitude, longitude, cipher)
-            var data = { "coordstoken": token }
+            var data = {
+                "coordstoken": token,
+                "placeId": placeId
+            }
 
             return httpRequester.postJson(url, data, headers);
         },
@@ -223,7 +226,6 @@
             var ciphered = token.join("");
             return ciphered;
         }
-
     }, {
     });
 

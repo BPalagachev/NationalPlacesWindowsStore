@@ -13,6 +13,7 @@
     var applicationSessionState = {};
     var allplacesList = new WinJS.Binding.List([]);
     var allPlaces = allplacesList.createGrouped(getGroupKey, getGroupData, compareGroups);
+    var mainScrollPosition = 0;
 
     function compareGroups(leftKey, rightKey) {
         return leftKey - rightKey;
@@ -103,12 +104,12 @@
         })
     }
 
-    var visitPlace = function () {
+    var visitPlace = function (placeId) {
         var userInfo = apiClient.users.isUserLoggedIn();
         return getLocation().then(function (pos) {
             var latitude = pos.coordinate.latitude;
             var longitude = pos.coordinate.longitude;
-            return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode);
+            return apiClient.places.visit(userInfo.sessionKey, latitude, longitude, userInfo.authCode, placeId);
         })
     }
 
@@ -128,20 +129,27 @@
         for (var i = 0; i < allPlaces.length; i++) {
             var place = allPlaces.getItem(i).data;
             place.visited = "notVisitedPlace";
-            place.name = place.name.substring(0, place.name.indexOf("(visited)"));
+            var index = place.name.indexOf("(visited)");
+            if (index > 0) {
+                var name = place.name.substring(0, index);
+                place.name = name;
+            }           
         }
 
     }
 
     var getVisitedPlaced = function () {
-        var userInfo = apiClient.users.isUserLoggedIn();
-        if (userInfo) {
-            apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
-                for (var i = 0; i < visitedPlacesArr.length; i++) {
-                    markPlaceAsVisited(visitedPlacesArr[i]);
-                }
-            })
-        }
+        return new WinJS.Promise(function (success, error) {
+            var userInfo = apiClient.users.isUserLoggedIn();
+            if (userInfo) {
+                apiClient.places.myplaces(userInfo.sessionKey).then(function (visitedPlacesArr) {
+                    for (var i = 0; i < visitedPlacesArr.length; i++) {
+                        markPlaceAsVisited(visitedPlacesArr[i]);
+                    }
+                }).then(success());
+            }
+            success();
+        })
     }
 
     var getTextToShare = function (currentPlace) {
@@ -238,7 +246,8 @@
         submitSearchText: submitSearchText,
         searchQuery: searchQuery,
         getTextToShare: getTextToShare,
-        dataTransferManager: dataTransferManager
+        dataTransferManager: dataTransferManager,
+        mainScrollPosition: mainScrollPosition
     })
 
 }())

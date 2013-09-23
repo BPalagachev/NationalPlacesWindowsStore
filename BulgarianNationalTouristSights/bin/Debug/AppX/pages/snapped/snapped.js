@@ -20,7 +20,7 @@
             var appBar = document.getElementById("appbar-id").winControl;
             var placeDetailsCommands
                             = document.querySelectorAll("#appbar-id button");
-            appBar.showCommands(placeDetailsCommands);
+            appBar.showCommands(placeDetailsCommands);  
         },
 
         updateLayout: function (element, viewState, lastViewState) {

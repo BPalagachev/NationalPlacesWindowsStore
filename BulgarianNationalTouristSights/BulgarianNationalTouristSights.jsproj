@@ -80,6 +80,7 @@
     <Content Include="pages\placedetails\placedetails.html" />
     <Content Include="pages\placedetails\placedetails.js" />
     <Content Include="pages\placedetails\PlaceDetailsCodeBehind.js" />
+    <Content Include="pages\privacypolicy\privacypolicy.html" />
     <Content Include="pages\search\searchresults.css" />
     <Content Include="pages\search\searchresults.html" />
     <Content Include="pages\search\searchresults.js" />

@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #383838;
+ background-color: #383838;
 }
 
 .ok-status {
@@ -50,9 +50,9 @@
 
 
 #contenthost {
-    margin: 0 80px;
+    margin: 0 0;
     height: 100%;
-    width: 88.21%;
+    width: 100%;
 }
 
 .fragment {

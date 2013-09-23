@@ -22,26 +22,30 @@
                     flyout.show(btnLogOut);
                 }, function (error) {
                     progress.style.display = "none";
-                    var errorMessage = document.getElementById("user-error-messages");
-                    var errorMsg;
-                    if (error.responseText && error.responseText.length != 0) {
-                        errorMsg = JSON.parse(error.responseText).Message;
-                        errorMsg = errorMsg.replace(/\n/g, '<br />');
-                    } else {
-                        errorMsg = "Please try again later";
-                    }
+                    if (errorMessage) {
+                        var errorMessage = document.getElementById("user-error-messages");
+                        var errorMsg;
+                        if (error.responseText && error.responseText.length != 0) {
+                            errorMsg = JSON.parse(error.responseText).Message;
+                            errorMsg = errorMsg.replace(/\n/g, '<br />');
+                        } else {
+                            errorMsg = "Please try again later";
+                        }
 
-                    var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
-                    errorMessage.innerHTML = "";
-                    errorMessage.appendChild(errorSpan);
+                        var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
+                        errorMessage.innerHTML = "";
+                        errorMessage.appendChild(errorSpan);
+                    }
                 })
         }
         else {
             progress.style.display = "none";
             var errorMessage = document.getElementById("user-error-messages");
-            var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer("Password mismatch");
-            errorMessage.innerHTML = "";
-            errorMessage.appendChild(errorSpan);
+            if (errorMessage) {
+                var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer("Password mismatch");
+                errorMessage.innerHTML = "";
+                errorMessage.appendChild(errorSpan);
+            }
         }
 
     }
@@ -67,22 +71,21 @@
            }, function (error) {
                progress.style.display = "none";
                var errorMessage = document.getElementById("user-error-messages");
-               var errorMsg = "";
-               if (error.responseText && error.responseText.length != 0) {
-                   errorMsg = JSON.parse(error.responseText).Message;
-                   errorMsg = errorMsg.replace(/\n/g, '<br />');
-               }
-               else {
-                   errorMsg = "Please try again later";
-               }
-               var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
-               errorMessage.innerHTML = "";
-               errorMessage.appendChild(errorSpan);
+               if (errorMessage) {
+                   var errorMsg = "";
+                   if (error.responseText && error.responseText.length != 0) {
+                       errorMsg = JSON.parse(error.responseText).Message;
+                       errorMsg = errorMsg.replace(/\n/g, '<br />');
+                   }
+                   else {
+                       errorMsg = "Please try again later";
+                   }
+                   var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
+                   errorMessage.innerHTML = "";
+                   errorMessage.appendChild(errorSpan);
+               }               
            })
     }
-
-
-
 
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "UsersHomeBehind", {
         register: register,

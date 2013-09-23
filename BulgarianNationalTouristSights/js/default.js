@@ -18,7 +18,8 @@
             });
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-            } else {
+            }
+            else {
                 BulgarianNationalTouristSights.ViewModels.loadSessionState();
             }
 
@@ -35,6 +36,18 @@
                 }
             }));
         }
+
+        WinJS.Application.onsettings = function (e) {
+            e.detail.applicationcommands = {
+                "privacyPolicy": {
+                    title: "Privacy Policy",
+                    href: "/pages/privacypolicy/privacypolicy.html"
+                },
+
+            };
+
+            WinJS.UI.SettingsFlyout.populateSettings(e);
+        };
     });
 
     app.oncheckpoint = function (args) {

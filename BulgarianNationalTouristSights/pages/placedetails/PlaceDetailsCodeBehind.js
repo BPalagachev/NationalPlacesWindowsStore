@@ -13,7 +13,7 @@
             statusDisplay.innerText = "Comment added!"
             var formContainer = document.getElementById("add-comment-container").innerHTML = "";
             renderedComments.unshift({
-                authorname: "You just commented: ",
+                authorname: "You just ",
                 content: text
             });
             renderComments(renderedComments);
@@ -22,14 +22,18 @@
             if (error.responseText) {
                 var errorMsg = JSON.parse(error.responseText).Message;
                 var errorSpan = BulgarianNationalTouristSights.DomGenerator.getErrorContainer(errorMsg);
-                statusDisplay.innerHTML = "";
-                statusDisplay.appendChild(errorSpan);
+                if (statusDisplay) {
+                    statusDisplay.innerHTML = "";
+                    statusDisplay.appendChild(errorSpan);
+                }
             }
             else {
                 var errorSpan = BulgarianNationalTouristSights
                     .DomGenerator.getErrorContainer("You cannot be localized right now. Please try again!");
-                statusDisplay.innerHTML = "";
-                statusDisplay.appendChild(errorSpan);
+                if (statusDisplay) {
+                    statusDisplay.innerHTML = "";
+                    statusDisplay.appendChild(errorSpan);
+                }
             }
         });
     }
@@ -40,17 +44,30 @@
 
         var visitedPlaceInfo = WinJS.Utilities.query("input[type=hidden]")[0];
         var placeId = visitedPlaceInfo.value;
-        return BulgarianNationalTouristSights.ViewModels.visitPlace().then(function () {
+        return BulgarianNationalTouristSights.ViewModels.visitPlace(placeId).then(function () {
             var msgSpan = BulgarianNationalTouristSights
                 .DomGenerator.getStatusOkContainer("Place marked as visited");
-            statusDisplay.innerHTML = "";
-            statusDisplay.appendChild(msgSpan);
+            if (statusDisplay) {
+                statusDisplay.innerHTML = "";
+                statusDisplay.appendChild(msgSpan);
+            }
         }).then(function(){
         }, function (error) {
+            var errorMsg = "";
+            if (error.responseText) {
+                errorMsg = JSON.parse(error.responseText).Message;
+            }
+            else {
+                errorMsg = "You cannot be localized right now. Please try again!";
+            }
+
             var errorSpan = BulgarianNationalTouristSights
-                    .DomGenerator.getErrorContainer("You cannot be localized right now. Please try again!");
-            statusDisplay.innerHTML = "";
-            statusDisplay.appendChild(errorSpan);
+                    .DomGenerator.getErrorContainer(errorMsg);
+
+            if (statusDisplay) {
+                statusDisplay.innerHTML = "";
+                statusDisplay.appendChild(errorSpan);
+            }
         });
     }
 
@@ -195,7 +212,7 @@
             deferral.complete();
         });
     }
-
+    
     WinJS.Namespace.defineWithParent(BulgarianNationalTouristSights, "PlaceDetailsCodeBehind", {
         showContextualCommands: showPlacesCommands,
         hideContextualCommands: hidePlacesCommands,
@@ -210,6 +227,6 @@
         savePageSession: savePageSession,
         loadPageSession: loadPageSession,
         openCommentsForm: openCommentsForm,
-        shareTextFileHandler: shareTextFileHandler
+        shareTextFileHandler: shareTextFileHandler,
     });
 }())

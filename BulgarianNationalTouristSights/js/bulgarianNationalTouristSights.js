@@ -3,7 +3,9 @@
 (function () {
     var applicationSettings = Windows.Storage.ApplicationData.current.localSettings;
     var vault = new Windows.Security.Credentials.PasswordVault();
-    var apiClient = NationalPlacesApi.getClient("http://localhost:45021/api/", applicationSettings, vault);
+    //var apiClient = NationalPlacesApi.getClient("http://localhost:45021/api/", applicationSettings, vault);
+    var apiClient = NationalPlacesApi.getClient("http://bulgariannationaltouristsights.apphb.com/api/", applicationSettings, vault);
+
 
     WinJS.Namespace.define("BulgarianNationalTouristSights", {
         apiClient : apiClient

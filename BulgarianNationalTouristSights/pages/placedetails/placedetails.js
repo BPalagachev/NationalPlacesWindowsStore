@@ -37,24 +37,32 @@
                     }
                 }).then(function(){
                     var laodingDetails = document.getElementById("loading-details");
-                    laodingDetails.style.display = "none";
+                    if (laodingDetails) {
+                        laodingDetails.style.display = "none";
+                    }
                 }, function () {
                     var laodingDetails = document.getElementById("loading-details");
-                    laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                    if (laodingDetails) {
+                        laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                    }
                 });
 
                 comments.then(function (data) {
                     BulgarianNationalTouristSights.PlaceDetailsCodeBehind.renderComments(data);
                 }).then(function () {
                     var laodingDetails = document.getElementById("loading-comments");
-                    laodingDetails.style.display = "none";
+                    if (laodingDetails) {
+                        laodingDetails.style.display = "none";
+                    }
                 }, function (error) {
                     var laodingDetails = document.getElementById("loading-comments");
-                    if (error && error.responseText) {
-                        laodingDetails.innerHTML = error.responseText;
-                    }
-                    else {
-                        laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                    if (laodingDetails) {
+                        if (error && error.responseText) {
+                            laodingDetails.innerHTML = error.responseText;
+                        }
+                        else {
+                            laodingDetails.innerHTML = "Data unavailable. Please try again later!";
+                        }
                     }
                 });
 

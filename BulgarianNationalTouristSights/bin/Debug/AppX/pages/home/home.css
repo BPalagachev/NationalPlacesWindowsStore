@@ -1,4 +1,23 @@
-﻿.homepage section[role=main] {
+﻿
+#list-view-maincontent {
+    position: absolute;
+    position:absolute;
+    top: -140px;
+    left: -140px;
+    height: calc(100% + 140px);
+    width: calc(100% + 140px);
+}
+
+    #list-view-maincontent .win-viewport {
+        height: calc(100% - 140px);
+        width: calc(100% - 180px);
+
+        padding-top: 140px;
+        padding-left: 180px;
+        padding-right: -140px;
+    }
+
+.homepage section[role=main] {
     margin-left: 80px;
     margin-right: 86px;
 }

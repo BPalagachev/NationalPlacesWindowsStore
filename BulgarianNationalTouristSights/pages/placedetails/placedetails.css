@@ -1,8 +1,12 @@
-﻿#coments-container {
+﻿#place-datails {
+    width: 90%;
+}
+
+#coments-container {
     padding-top: 15px;
-    width: 100%;
+    width: 80%;
+    height: 55%;
     overflow:auto;
-    height: 300px;
 }
 .placedetails section[role=main] {
     margin-left: 120px;
@@ -10,16 +14,26 @@
 }
 
 fieldset {
-    width: 35%;
+    width: 50%;
     margin: 0 auto;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+textarea {
+    width: 90%;
 }
 
 legend {
     padding:5px;
     text-align:center;
     font-size: 1.5em;
+}
+
+#comments-textarea {
+    margin: 0 auto;
+    width: 93%;
+    margin-bottom: 10px;
 }
 
 @media screen and (-ms-view-state: snapped) {
