@@ -1,0 +1,1 @@
+E:\programming\TelerikAcademy\FullTime\04. WinJs\TeamWork\NationalPlaces\NationalPlacesWindowsStore\BulgarianNationalTouristSights\AppPackages\BulgarianNationalTouristSights_1.0.0.0_AnyCPU_Debug_Test\BulgarianNationalTouristSights_1.0.0.0_AnyCPU_Debug.appx
